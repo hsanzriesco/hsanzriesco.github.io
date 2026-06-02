@@ -4,570 +4,1023 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="La Cuchara de Oro – Las mejores recetas caseras españolas. Cocido, paella, tortilla, gazpacho, postres y mucho más. Recetas fáciles paso a paso.">
-<meta name="keywords" content="recetas caseras, cocina española, recetas fáciles, paella, tortilla, cocido madrileño, gazpacho, postres caseros">
+<meta name="description" content="La Cuchara de Oro – Las mejores recetas caseras españolas. Más de 60 recetas tradicionales con todos los trucos y secretos.">
 <title>La Cuchara de Oro – Recetas Caseras Españolas</title>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
-:root{--gold:#C9A84C;--gold2:#F0D080;--gold-light:#F9F0DC;--dark:#1A1610;--dark2:#2C2518;--text:#2E2A22;--muted:#7A6E5F;--bg:#FDFAF4;--white:#FFF;--border:#E5DBC5;--red:#B83232;--green:#2D6A4F}
+:root{
+  --gold:#B8943F;--gold2:#D4AF5A;--gold3:#F0D080;--gold-light:#FBF4E3;--gold-xlight:#FFFDF5;
+  --dark:#0F0D09;--dark2:#1C1810;--dark3:#2A2318;--ink:#1E1A14;--text:#2E2A22;
+  --muted:#7A6E5F;--bg:#FDFAF2;--white:#FFFFFF;
+  --border:#E8DEC8;--border2:#D4C9A8;
+  --red:#8B2020;--green:#1A4731;--cream:#F5EDD8;
+}
 *{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{font-family:'Lato',sans-serif;background:var(--bg);color:var(--text);line-height:1.7}
+html{scroll-behavior:smooth;font-size:16px}
+body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);line-height:1.7;overflow-x:hidden}
 a{color:inherit;text-decoration:none}
-img{max-width:100%}
+::selection{background:var(--gold3);color:var(--dark)}
 
-/* HEADER */
-header{background:var(--dark);padding:0 2rem;position:sticky;top:0;z-index:200;border-bottom:3px solid var(--gold);display:flex;align-items:center;justify-content:space-between;height:68px}
-.logo{font-family:'Playfair Display',serif;color:var(--gold);font-size:1.5rem}
-.logo span{color:#fff}
-nav{display:flex;gap:1.8rem;align-items:center}
-nav a{color:#bbb;font-size:0.82rem;letter-spacing:1.2px;text-transform:uppercase;transition:color .2s}
-nav a:hover{color:var(--gold)}
-.nav-search{background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.15);border-radius:2px;padding:6px 12px;color:#fff;font-family:'Lato',sans-serif;font-size:0.85rem;width:180px}
-.nav-search::placeholder{color:#888}
-@media(max-width:900px){nav .hide-mobile{display:none}.nav-search{width:120px}}
-@media(max-width:600px){nav{gap:1rem}.logo{font-size:1.2rem}}
+/* SCROLLBAR */
+::-webkit-scrollbar{width:6px}
+::-webkit-scrollbar-track{background:var(--bg)}
+::-webkit-scrollbar-thumb{background:var(--gold);border-radius:3px}
 
-/* HERO */
-.hero{background:var(--dark2);padding:5rem 2rem 4rem;text-align:center;position:relative;overflow:hidden;border-bottom:3px solid var(--gold)}
-.hero-bg{position:absolute;inset:0;opacity:0.04;background-image:repeating-linear-gradient(45deg,var(--gold) 0,var(--gold) 1px,transparent 0,transparent 50%);background-size:20px 20px}
-.hero-inner{position:relative;max-width:680px;margin:0 auto}
-.hero-tag{background:var(--gold);color:var(--dark);font-size:0.7rem;letter-spacing:2px;text-transform:uppercase;padding:4px 14px;border-radius:2px;display:inline-block;margin-bottom:1.2rem;font-weight:700}
-.hero h1{font-family:'Playfair Display',serif;font-size:clamp(2rem,5vw,3.5rem);color:#fff;margin-bottom:1rem;line-height:1.15}
-.hero h1 em{color:var(--gold);font-style:italic}
-.hero p{color:#aaa;font-size:1rem;margin-bottom:2rem;max-width:500px;margin-left:auto;margin-right:auto}
-.hero-btns{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap}
-.btn-gold{background:var(--gold);color:var(--dark);padding:13px 30px;font-weight:700;font-size:0.9rem;letter-spacing:1px;border-radius:2px;display:inline-block;transition:background .2s;border:none;cursor:pointer}
-.btn-gold:hover{background:var(--gold2)}
-.btn-outline{background:transparent;color:var(--gold);padding:12px 28px;font-weight:700;font-size:0.9rem;letter-spacing:1px;border-radius:2px;display:inline-block;border:2px solid var(--gold);cursor:pointer;transition:all .2s}
-.btn-outline:hover{background:var(--gold);color:var(--dark)}
+/* ═══ HEADER ═══ */
+header{
+  background:var(--dark);
+  padding:0 3rem;
+  position:sticky;top:0;z-index:300;
+  border-bottom:2px solid var(--gold);
+  display:flex;align-items:center;justify-content:space-between;
+  height:72px;
+}
+.logo-wrap{display:flex;align-items:center;gap:12px}
+.logo-icon{width:38px;height:38px;border:2px solid var(--gold);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.1rem}
+.logo-text{font-family:'Cormorant Garamond',serif;font-size:1.5rem;color:var(--white);letter-spacing:0.5px;line-height:1}
+.logo-text span{color:var(--gold2)}
+.logo-sub{font-size:0.6rem;letter-spacing:3px;text-transform:uppercase;color:var(--muted);display:block;margin-top:-2px}
+nav{display:flex;gap:0;align-items:center}
+.nav-link{color:#999;font-size:0.78rem;letter-spacing:1.5px;text-transform:uppercase;padding:0 1.2rem;height:72px;display:flex;align-items:center;border-bottom:2px solid transparent;margin-bottom:-2px;transition:all .2s;font-weight:500}
+.nav-link:hover{color:var(--gold);border-bottom-color:var(--gold)}
+.search-wrap{position:relative;margin-left:1rem}
+.search-wrap input{background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.15);border-radius:50px;padding:8px 16px 8px 36px;color:#fff;font-family:'Inter',sans-serif;font-size:0.82rem;width:200px;transition:all .3s}
+.search-wrap input:focus{outline:none;width:240px;background:rgba(255,255,255,0.12);border-color:var(--gold)}
+.search-wrap input::placeholder{color:#666}
+.search-icon{position:absolute;left:12px;top:50%;transform:translateY(-50%);color:#666;font-size:0.9rem}
+@media(max-width:900px){.nav-link{display:none}.search-wrap input{width:150px}}
+@media(max-width:600px){header{padding:0 1.2rem}.logo-sub{display:none}}
 
-/* STATS BAR */
-.stats-bar{background:var(--gold);display:flex;justify-content:center;gap:3rem;padding:0.9rem 2rem;flex-wrap:wrap}
-.stat{text-align:center}
-.stat strong{display:block;font-size:1.3rem;font-weight:700;color:var(--dark);font-family:'Playfair Display',serif}
-.stat span{font-size:0.72rem;letter-spacing:1.5px;text-transform:uppercase;color:var(--dark2)}
+/* ═══ HERO ═══ */
+.hero{
+  background:var(--dark2);
+  padding:0;
+  position:relative;
+  overflow:hidden;
+  min-height:560px;
+  display:flex;align-items:center;
+}
+.hero-pattern{
+  position:absolute;inset:0;
+  background-image:
+    radial-gradient(circle at 20% 50%, rgba(184,148,63,0.12) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(184,148,63,0.08) 0%, transparent 40%),
+    radial-gradient(circle at 60% 80%, rgba(184,148,63,0.06) 0%, transparent 30%);
+}
+.hero-lines{position:absolute;inset:0;opacity:0.03;background-image:repeating-linear-gradient(0deg,var(--gold) 0,var(--gold) 1px,transparent 0,transparent 80px),repeating-linear-gradient(90deg,var(--gold) 0,var(--gold) 1px,transparent 0,transparent 80px)}
+.hero-content{position:relative;max-width:1200px;margin:0 auto;padding:5rem 3rem;display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center;width:100%}
+.hero-left{}
+.hero-eyebrow{display:flex;align-items:center;gap:10px;margin-bottom:1.5rem}
+.eyebrow-line{height:1px;width:40px;background:var(--gold)}
+.eyebrow-text{font-size:0.72rem;letter-spacing:3px;text-transform:uppercase;color:var(--gold);font-weight:600}
+.hero h1{font-family:'Cormorant Garamond',serif;font-size:clamp(2.8rem,5vw,4.5rem);color:var(--white);line-height:1.05;margin-bottom:1.2rem;font-weight:700}
+.hero h1 em{color:var(--gold2);font-style:italic}
+.hero-desc{color:#999;font-size:1rem;margin-bottom:2rem;line-height:1.7;max-width:460px;font-weight:300}
+.hero-actions{display:flex;gap:1rem;flex-wrap:wrap}
+.btn-primary{background:var(--gold);color:var(--dark);padding:14px 32px;font-weight:600;font-size:0.85rem;letter-spacing:1px;text-transform:uppercase;border-radius:2px;display:inline-block;transition:all .25s;border:none;cursor:pointer}
+.btn-primary:hover{background:var(--gold2);transform:translateY(-1px)}
+.btn-secondary{background:transparent;color:var(--white);padding:13px 30px;font-weight:500;font-size:0.85rem;letter-spacing:1px;border-radius:2px;display:inline-block;border:1px solid rgba(255,255,255,0.3);cursor:pointer;transition:all .25s}
+.btn-secondary:hover{border-color:var(--gold);color:var(--gold)}
+.hero-right{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.hero-card{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:4px;padding:1.2rem;cursor:pointer;transition:all .25s}
+.hero-card:hover{background:rgba(184,148,63,0.12);border-color:rgba(184,148,63,0.4);transform:translateY(-2px)}
+.hero-card:first-child{grid-column:1/-1;display:flex;align-items:center;gap:1rem}
+.hc-emoji{font-size:2.5rem}
+.hc-emoji-lg{font-size:3rem}
+.hc-tag{font-size:0.65rem;letter-spacing:2px;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:0.3rem}
+.hc-title{font-family:'Cormorant Garamond',serif;color:var(--white);font-size:1rem;font-weight:600}
+.hc-meta{font-size:0.75rem;color:#777;margin-top:0.2rem}
+@media(max-width:800px){.hero-content{grid-template-columns:1fr;padding:3rem 1.5rem}.hero-right{display:none}}
 
-/* AD BANNER */
-.ad-banner{background:var(--white);border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:0.8rem 2rem;text-align:center}
-.ad-ph{max-width:728px;margin:0 auto;background:#f5f0e8;border:2px dashed var(--border);border-radius:3px;padding:1.2rem;color:var(--muted);font-size:0.8rem;letter-spacing:.5px}
-.ad-ph strong{display:block;font-size:0.9rem;color:var(--text);margin-bottom:2px}
-.ad-ph-sm{background:#f5f0e8;border:2px dashed var(--border);border-radius:3px;padding:1.5rem 1rem;text-align:center;color:var(--muted);font-size:0.75rem;min-height:200px;display:flex;flex-direction:column;align-items:center;justify-content:center}
-.ad-ph-sm strong{display:block;font-size:0.85rem;color:var(--text);margin-bottom:4px}
+/* ═══ RIBBON ═══ */
+.ribbon{background:var(--gold);display:flex;justify-content:center;gap:0;overflow:hidden}
+.ribbon-item{padding:0.85rem 2.5rem;text-align:center;border-right:1px solid rgba(0,0,0,0.1);flex:1;max-width:200px}
+.ribbon-item:last-child{border-right:none}
+.ribbon-num{font-family:'Cormorant Garamond',serif;font-size:1.8rem;font-weight:700;color:var(--dark);line-height:1}
+.ribbon-label{font-size:0.65rem;letter-spacing:2px;text-transform:uppercase;color:var(--dark3);font-weight:600}
+@media(max-width:600px){.ribbon-item{padding:0.7rem 1rem}.ribbon-num{font-size:1.4rem}}
 
-/* LAYOUT */
-.container{max-width:1200px;margin:0 auto;padding:0 2rem}
-.layout{display:grid;grid-template-columns:1fr 290px;gap:2.5rem;padding:2.5rem 0}
-@media(max-width:900px){.layout{grid-template-columns:1fr}}
+/* ═══ AD BANNER ═══ */
+.ad-band{background:var(--white);border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:0.8rem 2rem;text-align:center}
+.ad-ph{max-width:728px;margin:0 auto;background:var(--cream);border:2px dashed var(--border2);border-radius:3px;padding:1rem 2rem;color:var(--muted);font-size:0.78rem;line-height:1.4}
+.ad-ph b{display:block;font-size:0.85rem;color:var(--text);margin-bottom:2px}
+.ad-side{background:var(--cream);border:2px dashed var(--border2);border-radius:3px;padding:1.5rem 1rem;text-align:center;color:var(--muted);font-size:0.75rem;min-height:180px;display:flex;flex-direction:column;align-items:center;justify-content:center}
+.ad-side b{display:block;font-size:0.85rem;color:var(--text);margin-bottom:3px}
 
-/* SECTION HEADERS */
-.sec-head{margin-bottom:1.5rem}
-.sec-title{font-family:'Playfair Display',serif;font-size:1.7rem;margin-bottom:0.2rem}
-.sec-sub{color:var(--muted);font-size:0.85rem;padding-bottom:0.8rem;border-bottom:2px solid var(--gold)}
+/* ═══ MAIN LAYOUT ═══ */
+.container{max-width:1240px;margin:0 auto;padding:0 2rem}
+.page-layout{display:grid;grid-template-columns:1fr 300px;gap:3rem;padding:2.5rem 0 4rem}
+@media(max-width:960px){.page-layout{grid-template-columns:1fr}}
 
-/* CATEGORY TABS */
-.cat-tabs{display:flex;gap:0.5rem;flex-wrap:wrap;margin-bottom:1.5rem}
-.cat-tab{background:var(--white);border:1px solid var(--border);padding:6px 14px;font-size:0.8rem;border-radius:2px;cursor:pointer;transition:all .2s;letter-spacing:.5px}
-.cat-tab:hover,.cat-tab.active{background:var(--dark);color:var(--white);border-color:var(--dark)}
+/* ═══ SECTION HEADING ═══ */
+.sec-head{margin-bottom:1.8rem}
+.sec-label{font-size:0.68rem;letter-spacing:3px;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:0.5rem;display:flex;align-items:center;gap:8px}
+.sec-label::before{content:'';display:inline-block;width:20px;height:1px;background:var(--gold)}
+.sec-title{font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:700;margin-bottom:0;line-height:1}
+.sec-line{height:1px;background:linear-gradient(to right,var(--gold),transparent);margin-top:0.8rem}
 
-/* RECIPE GRID */
-.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:1.2rem}
-.card{background:var(--white);border:1px solid var(--border);border-radius:3px;overflow:hidden;transition:transform .2s,box-shadow .2s;cursor:pointer}
-.card:hover{transform:translateY(-4px);box-shadow:0 10px 28px rgba(0,0,0,0.09)}
-.card-img{height:160px;display:flex;align-items:center;justify-content:center;font-size:3.5rem;background:var(--gold-light);position:relative}
-.card-time{position:absolute;bottom:8px;right:8px;background:var(--dark);color:var(--gold);font-size:0.7rem;padding:3px 8px;border-radius:2px;font-weight:700}
-.card-diff{position:absolute;top:8px;left:8px;font-size:0.65rem;padding:3px 8px;border-radius:2px;font-weight:700;letter-spacing:.5px}
-.diff-facil{background:#e8f5e9;color:var(--green)}
-.diff-media{background:#fff8e1;color:#b45309}
-.diff-dificil{background:#fce4e4;color:var(--red)}
-.card-body{padding:1rem}
-.card-cat{font-size:0.68rem;letter-spacing:2px;text-transform:uppercase;color:var(--gold);font-weight:700;margin-bottom:0.3rem}
-.card-title{font-family:'Playfair Display',serif;font-size:1rem;margin-bottom:0.5rem;line-height:1.3}
-.card-meta{display:flex;gap:0.8rem;font-size:0.78rem;color:var(--muted);margin-bottom:0.8rem}
-.badge{font-size:0.6rem;padding:2px 7px;border-radius:2px;font-weight:700;letter-spacing:.5px;vertical-align:middle;margin-left:5px}
-.badge-top{background:var(--red);color:#fff}
-.badge-new{background:var(--green);color:#fff}
-.badge-fav{background:var(--gold);color:var(--dark)}
-.card-btn{display:block;text-align:center;background:var(--dark);color:var(--white);padding:8px;font-size:0.8rem;letter-spacing:1px;border-radius:2px;transition:background .2s}
-.card-btn:hover{background:var(--gold);color:var(--dark)}
+/* ═══ FILTER TABS ═══ */
+.filter-bar{display:flex;gap:0;margin-bottom:1.8rem;border:1px solid var(--border);border-radius:3px;overflow-x:auto;background:var(--white)}
+.f-tab{padding:9px 16px;font-size:0.78rem;letter-spacing:.5px;font-weight:500;border:none;background:none;cursor:pointer;color:var(--muted);white-space:nowrap;transition:all .2s;border-right:1px solid var(--border)}
+.f-tab:last-child{border-right:none}
+.f-tab:hover{background:var(--gold-light);color:var(--ink)}
+.f-tab.active{background:var(--dark);color:var(--white)}
 
-/* FEATURED BANNER */
-.featured{background:var(--dark);padding:3.5rem 2rem;margin:2rem 0}
-.feat-inner{display:grid;grid-template-columns:1fr 1fr;gap:2.5rem;align-items:center;max-width:1200px;margin:0 auto}
-@media(max-width:700px){.feat-inner{grid-template-columns:1fr}}
-.feat-img{font-size:7rem;text-align:center;background:rgba(201,168,76,.08);padding:2rem;border-radius:3px;border:1px solid rgba(201,168,76,.2)}
-.feat-tag{background:var(--gold);color:var(--dark);font-size:0.68rem;letter-spacing:2px;padding:3px 12px;border-radius:2px;font-weight:700;display:inline-block;margin-bottom:0.8rem}
-.feat-inner h2{font-family:'Playfair Display',serif;color:#fff;font-size:1.9rem;margin-bottom:0.8rem;line-height:1.2}
-.feat-inner p{color:#999;margin-bottom:1.5rem;font-size:0.95rem}
+/* ═══ RECIPE GRID ═══ */
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:1.5rem}
+.card{background:var(--white);border:1px solid var(--border);border-radius:4px;overflow:hidden;cursor:pointer;transition:all .25s;position:relative}
+.card:hover{transform:translateY(-5px);box-shadow:0 16px 40px rgba(0,0,0,0.1);border-color:var(--border2)}
+.card-thumb{height:190px;background:var(--gold-light);display:flex;align-items:center;justify-content:center;font-size:3.8rem;position:relative;overflow:hidden;transition:transform .3s}.card:hover .card-thumb{transform:scale(1.02)}
+.card-thumb::after{content:'';position:absolute;inset:0;background:linear-gradient(to bottom,rgba(0,0,0,0.15) 0%,transparent 40%,rgba(0,0,0,0.3) 100%)}
+.c-diff{position:absolute;top:10px;left:10px;font-size:0.62rem;padding:3px 9px;border-radius:50px;font-weight:600;letter-spacing:.5px}
+.c-diff.facil{background:#dcf5e7;color:#1a5c3a}
+.c-diff.media{background:#fff3cd;color:#7a4a00}
+.c-diff.dificil{background:#fde;color:#7a1a1a}
+.c-time{position:absolute;bottom:10px;right:10px;background:rgba(0,0,0,0.6);color:var(--gold3);font-size:0.68rem;padding:3px 8px;border-radius:50px;font-weight:600;backdrop-filter:blur(4px)}
+.c-badge{position:absolute;top:10px;right:10px;font-size:0.58rem;padding:3px 8px;border-radius:50px;font-weight:700;letter-spacing:.5px;text-transform:uppercase}
+.c-badge.top{background:var(--red);color:#fff}
+.c-badge.new{background:var(--green);color:#fff}
+.c-badge.fav{background:var(--gold);color:var(--dark)}
+.card-body{padding:1.1rem 1.2rem 1.2rem}
+.c-cat{font-size:0.62rem;letter-spacing:2.5px;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:0.35rem}
+.c-title{font-family:'Cormorant Garamond',serif;font-size:1.15rem;font-weight:600;line-height:1.3;margin-bottom:0.5rem;color:var(--ink)}
+.c-desc{font-size:0.8rem;color:var(--muted);line-height:1.5;margin-bottom:0.8rem}
+.c-meta{display:flex;align-items:center;gap:1rem;font-size:0.75rem;color:var(--muted);margin-bottom:0.9rem}
+.c-stars{color:var(--gold);font-size:0.75rem}
+.c-btn{display:flex;align-items:center;justify-content:space-between;background:var(--gold-xlight);border:1px solid var(--border);padding:8px 12px;border-radius:2px;font-size:0.78rem;font-weight:600;color:var(--ink);transition:all .2s;letter-spacing:.3px}
+.c-btn:hover,.card:hover .c-btn{background:var(--dark);color:var(--white);border-color:var(--dark)}
 
-/* TIPS SECTION */
-.tips{background:var(--gold-light);border-top:3px solid var(--gold);border-bottom:3px solid var(--gold);padding:2.5rem 2rem;margin:1rem 0}
-.tips-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1.5rem;max-width:1200px;margin:1rem auto 0}
-.tip{text-align:center;padding:1.5rem 1rem;background:var(--white);border:1px solid var(--border);border-radius:3px}
-.tip-icon{font-size:2rem;margin-bottom:0.8rem}
-.tip h3{font-family:'Playfair Display',serif;font-size:1rem;margin-bottom:0.4rem}
-.tip p{font-size:0.82rem;color:var(--muted)}
+/* ═══ FEATURED ═══ */
+.featured{background:var(--dark3);padding:5rem 3rem;border-top:1px solid rgba(255,255,255,0.05);border-bottom:1px solid rgba(255,255,255,0.05)}
+.feat-wrap{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center}
+@media(max-width:760px){.feat-wrap{grid-template-columns:1fr;gap:2rem}}
+.feat-visual{position:relative}
+.feat-main-card{background:rgba(255,255,255,0.05);border:1px solid rgba(184,148,63,0.25);border-radius:6px;padding:3rem;text-align:center;font-size:7rem;position:relative}
+.feat-badge-card{position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:var(--gold);color:var(--dark);font-size:0.65rem;letter-spacing:2px;padding:4px 16px;font-weight:700;border-radius:50px;white-space:nowrap}
+.feat-mini-cards{display:grid;grid-template-columns:1fr 1fr;gap:0.8rem;margin-top:0.8rem}
+.feat-mini{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:4px;padding:0.8rem;text-align:center;cursor:pointer;transition:all .2s}
+.feat-mini:hover{background:rgba(184,148,63,0.15);border-color:rgba(184,148,63,0.4)}
+.feat-mini-emoji{font-size:1.8rem}
+.feat-mini-title{font-size:0.75rem;color:#aaa;margin-top:0.3rem}
+.feat-text .eyebrow-line{background:var(--gold)}
+.feat-text h2{font-family:'Cormorant Garamond',serif;color:var(--white);font-size:2.8rem;font-weight:700;line-height:1.1;margin:1rem 0}
+.feat-text p{color:#999;font-weight:300;margin-bottom:2rem;line-height:1.7}
 
-/* SIDEBAR */
-.widget{background:var(--white);border:1px solid var(--border);padding:1.25rem;margin-bottom:1.5rem;border-radius:3px}
-.widget-title{font-family:'Playfair Display',serif;font-size:1rem;margin-bottom:1rem;padding-bottom:0.6rem;border-bottom:2px solid var(--gold)}
-.pop-list{list-style:none}
-.pop-list li{padding:0.55rem 0;border-bottom:1px solid var(--border);font-size:0.85rem;display:flex;align-items:center;gap:0.5rem;cursor:pointer;transition:color .2s}
-.pop-list li:hover{color:var(--gold)}
-.pop-list li:last-child{border-bottom:none}
-.num{color:var(--gold);font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:700;min-width:22px}
-.cats-widget{display:flex;flex-wrap:wrap;gap:0.4rem}
-.cat-w{background:var(--gold-light);color:var(--text);padding:4px 10px;font-size:0.78rem;border-radius:2px;border:1px solid var(--border);cursor:pointer;transition:background .2s}
-.cat-w:hover{background:var(--gold)}
-.tip-box{background:var(--dark);color:#ddd;padding:1rem;border-radius:3px;font-size:0.82rem;line-height:1.6;border-left:3px solid var(--gold)}
-.tip-box strong{color:var(--gold);display:block;margin-bottom:0.3rem;font-size:0.85rem}
+/* ═══ CATEGORIES SHOWCASE ═══ */
+.cat-showcase{padding:4rem 3rem;background:var(--white);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.cat-grid{max-width:1200px;margin:2rem auto 0;display:grid;grid-template-columns:repeat(4,1fr);gap:1.2rem}
+@media(max-width:760px){.cat-grid{grid-template-columns:repeat(2,1fr)}}
+.cat-block{background:var(--gold-light);border:1px solid var(--border);border-radius:4px;padding:1.5rem;text-align:center;cursor:pointer;transition:all .25s;position:relative;overflow:hidden}
+.cat-block::before{content:'';position:absolute;bottom:0;left:0;right:0;height:3px;background:var(--gold);transform:scaleX(0);transition:transform .25s}
+.cat-block:hover{background:var(--dark);color:var(--white);border-color:var(--dark);transform:translateY(-3px)}
+.cat-block:hover::before{transform:scaleX(1)}
+.cat-block:hover .cat-block-sub{color:#999}
+.cat-emoji{font-size:2.5rem;margin-bottom:0.5rem;display:block}
+.cat-block-name{font-family:'Cormorant Garamond',serif;font-size:1.2rem;font-weight:700;margin-bottom:0.2rem}
+.cat-block-sub{font-size:0.75rem;color:var(--muted);transition:color .25s}
 
-/* NEWSLETTER */
-.newsletter{background:var(--dark2);padding:3rem 2rem;text-align:center;border-top:3px solid var(--gold)}
-.newsletter h2{font-family:'Playfair Display',serif;font-size:1.8rem;color:#fff;margin-bottom:0.4rem}
-.newsletter p{color:#999;margin-bottom:1.5rem}
-.nl-form{display:flex;max-width:400px;margin:0 auto;gap:0.5rem}
-.nl-form input{flex:1;padding:11px 14px;border:1px solid var(--border);border-radius:2px;font-family:'Lato',sans-serif;font-size:0.9rem;background:rgba(255,255,255,0.08);color:#fff}
-.nl-form input::placeholder{color:#777}
-.nl-form button{background:var(--gold);color:var(--dark);padding:11px 20px;font-weight:700;font-size:0.85rem;border:none;cursor:pointer;border-radius:2px}
+/* ═══ TIPS STRIP ═══ */
+.tips-strip{background:var(--dark);padding:3rem 3rem;border-top:2px solid var(--gold)}
+.tips-inner{max-width:1200px;margin:0 auto}
+.tips-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem;margin-top:2rem}
+@media(max-width:760px){.tips-grid{grid-template-columns:1fr;gap:1.2rem}}
+.tip-card{border-left:2px solid var(--gold);padding-left:1.2rem}
+.tip-icon{font-size:1.4rem;margin-bottom:0.5rem}
+.tip-title{font-family:'Cormorant Garamond',serif;color:var(--white);font-size:1.1rem;font-weight:600;margin-bottom:0.3rem}
+.tip-text{font-size:0.83rem;color:#888;line-height:1.6;font-weight:300}
 
-/* FOOTER */
-footer{background:var(--dark);color:#666;padding:2rem;text-align:center;font-size:0.82rem;border-top:1px solid #333}
-.footer-links{display:flex;justify-content:center;gap:1.5rem;margin-bottom:0.8rem;flex-wrap:wrap}
-.footer-links a{color:#999;transition:color .2s}
-.footer-links a:hover{color:var(--gold)}
+/* ═══ NEWSLETTER ═══ */
+.newsletter{padding:5rem 3rem;text-align:center;background:var(--gold-light);border-top:3px solid var(--gold)}
+.nl-wrap{max-width:520px;margin:0 auto}
+.nl-label{font-size:0.7rem;letter-spacing:3px;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:1rem;display:flex;align-items:center;justify-content:center;gap:8px}
+.nl-label::before,.nl-label::after{content:'';display:inline-block;width:30px;height:1px;background:var(--gold)}
+.newsletter h2{font-family:'Cormorant Garamond',serif;font-size:2.5rem;font-weight:700;margin-bottom:0.5rem;color:var(--ink)}
+.newsletter p{color:var(--muted);margin-bottom:2rem;font-weight:300}
+.nl-form{display:flex;gap:0;border:1px solid var(--border2);border-radius:3px;overflow:hidden;background:var(--white)}
+.nl-form input{flex:1;padding:13px 18px;border:none;font-family:'Inter',sans-serif;font-size:0.9rem;color:var(--ink);outline:none}
+.nl-form button{background:var(--dark);color:var(--white);padding:13px 24px;font-weight:600;font-size:0.82rem;border:none;cursor:pointer;letter-spacing:.5px;transition:background .2s;white-space:nowrap}
+.nl-form button:hover{background:var(--gold);color:var(--dark)}
 
-/* RECIPE PAGE */
+/* ═══ SIDEBAR ═══ */
+.widget{background:var(--white);border:1px solid var(--border);border-radius:4px;margin-bottom:1.5rem;overflow:hidden}
+.w-head{background:var(--dark);padding:0.8rem 1.2rem;display:flex;align-items:center;gap:8px}
+.w-head span{font-family:'Cormorant Garamond',serif;color:var(--white);font-size:1rem;font-weight:600}
+.w-body{padding:1rem 1.2rem}
+.pop-item{display:flex;align-items:center;gap:0.8rem;padding:0.6rem 0;border-bottom:1px solid var(--border);cursor:pointer;transition:all .2s}
+.pop-item:last-child{border-bottom:none}
+.pop-item:hover{padding-left:4px}
+.pop-item:hover .pop-title{color:var(--gold)}
+.pop-num{font-family:'Cormorant Garamond',serif;font-size:1.3rem;font-weight:700;color:var(--gold);min-width:24px;line-height:1}
+.pop-emoji{font-size:1.3rem}
+.pop-title{font-size:0.83rem;font-weight:500;color:var(--ink);line-height:1.3;transition:color .2s}
+.pop-sub{font-size:0.72rem;color:var(--muted)}
+.tag-cloud{display:flex;flex-wrap:wrap;gap:0.4rem}
+.tag{background:var(--gold-light);border:1px solid var(--border);color:var(--text);padding:5px 12px;font-size:0.75rem;border-radius:50px;cursor:pointer;transition:all .2s;font-weight:500}
+.tag:hover{background:var(--dark);color:var(--white);border-color:var(--dark)}
+.chef-tip{background:var(--dark3);border-left:3px solid var(--gold);padding:1rem;border-radius:0 3px 3px 0;font-size:0.82rem;color:#ccc;line-height:1.6}
+.chef-tip strong{color:var(--gold);display:block;margin-bottom:0.3rem;font-family:'Cormorant Garamond',serif;font-size:1rem}
+
+/* ═══ FOOTER ═══ */
+footer{background:var(--dark);color:#666;padding:3rem 3rem 2rem;border-top:2px solid var(--gold)}
+.footer-top{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:3rem;margin-bottom:2rem}
+@media(max-width:760px){.footer-top{grid-template-columns:1fr 1fr;gap:2rem}}
+.footer-brand .logo-text{color:var(--white);font-size:1.3rem;display:block;margin-bottom:0.5rem}
+.footer-brand p{font-size:0.82rem;color:#666;line-height:1.6;font-weight:300}
+.footer-col h4{font-family:'Cormorant Garamond',serif;color:var(--white);font-size:1rem;font-weight:600;margin-bottom:0.8rem;padding-bottom:0.5rem;border-bottom:1px solid rgba(255,255,255,0.1)}
+.footer-col a{display:block;color:#666;font-size:0.8rem;margin-bottom:0.4rem;transition:color .2s}
+.footer-col a:hover{color:var(--gold)}
+.footer-bottom{max-width:1200px;margin:0 auto;padding-top:1.5rem;border-top:1px solid rgba(255,255,255,0.08);display:flex;justify-content:space-between;align-items:center;font-size:0.78rem;flex-wrap:wrap;gap:0.5rem}
+
+/* ═══ RECIPE PAGE ═══ */
 #recipe-page{display:none}
-.r-header{background:var(--dark);padding:3.5rem 2rem 2.5rem;text-align:center;border-bottom:3px solid var(--gold)}
-.r-header .r-emoji{font-size:4.5rem;margin-bottom:0.5rem}
-.r-header h1{font-family:'Playfair Display',serif;color:#fff;font-size:clamp(1.6rem,4vw,2.8rem);margin:0.5rem 0}
-.r-header p{color:#aaa;font-size:0.95rem}
-.r-meta-bar{background:var(--gold);display:flex;justify-content:center;gap:2rem;padding:0.9rem 2rem;flex-wrap:wrap}
-.r-meta-bar span{font-size:0.82rem;font-weight:700;color:var(--dark);letter-spacing:.5px}
-.r-body{max-width:780px;margin:0 auto;padding:2rem 2rem 3rem}
-.r-body h2{font-family:'Playfair Display',serif;font-size:1.4rem;margin:2rem 0 0.8rem;color:var(--dark);display:flex;align-items:center;gap:0.5rem}
-.r-body h2::before{content:'';display:inline-block;width:4px;height:1.4rem;background:var(--gold);border-radius:2px}
-.r-body ul,.r-body ol{margin-left:1.5rem;margin-bottom:1rem}
-.r-body li{margin-bottom:0.5rem;font-size:0.95rem}
-.r-body ol li{padding-left:0.3rem}
-.r-intro{background:var(--gold-light);border-left:4px solid var(--gold);padding:1rem 1.2rem;margin-bottom:1.5rem;border-radius:0 3px 3px 0;font-size:0.92rem;color:var(--text)}
-.tip-recipe{background:var(--dark);color:#ddd;padding:1rem 1.2rem;border-radius:3px;font-size:0.88rem;margin-top:1rem;border-left:4px solid var(--gold)}
-.tip-recipe strong{color:var(--gold)}
-.back-link{display:inline-flex;align-items:center;gap:0.4rem;margin:1.5rem 2rem;background:var(--dark);color:#fff;padding:10px 20px;border-radius:2px;font-size:0.85rem;cursor:pointer;transition:background .2s;border:none}
-.back-link:hover{background:var(--gold);color:var(--dark)}
-.r-rating{display:flex;align-items:center;gap:0.5rem;margin-top:0.5rem}
-.stars{color:var(--gold);font-size:1.1rem}
-.load-more{display:block;margin:2rem auto 0;background:var(--dark);color:#fff;padding:13px 32px;border:none;cursor:pointer;font-family:'Lato',sans-serif;font-size:0.9rem;letter-spacing:1px;border-radius:2px;transition:background .2s}
-.load-more:hover{background:var(--gold);color:var(--dark)}
-.hidden{display:none}
+.rp-hero{background:var(--dark2);padding:4rem 3rem 3rem;text-align:center;border-bottom:3px solid var(--gold);position:relative;overflow:hidden}
+.rp-hero-bg{position:absolute;inset:0;background:radial-gradient(circle at 50% 50%,rgba(184,148,63,0.08),transparent 60%)}
+.rp-emoji{font-size:5rem;position:relative;display:block;margin-bottom:0.5rem}
+.rp-breadcrumb{font-size:0.75rem;color:#666;margin-bottom:1rem;letter-spacing:.5px}
+.rp-breadcrumb span{color:var(--gold)}
+.rp-hero h1{font-family:'Cormorant Garamond',serif;color:var(--white);font-size:clamp(2rem,5vw,3.2rem);font-weight:700;margin:0.5rem 0;line-height:1.1}
+.rp-hero p{color:#999;font-size:0.95rem;max-width:500px;margin:0 auto;font-weight:300}
+.rp-rating{display:flex;align-items:center;gap:0.5rem;justify-content:center;margin-top:0.8rem}
+.rp-stars{color:var(--gold);font-size:1rem;letter-spacing:2px}
+.rp-meta-bar{background:var(--gold);display:flex;justify-content:center;gap:0;flex-wrap:wrap}
+.rp-meta-item{padding:0.9rem 2rem;text-align:center;border-right:1px solid rgba(0,0,0,0.1);flex:1;min-width:120px}
+.rp-meta-item:last-child{border-right:none}
+.rp-meta-val{display:block;font-weight:700;font-size:0.95rem;color:var(--dark);font-family:'Cormorant Garamond',serif;font-size:1rem}
+.rp-meta-key{font-size:0.65rem;letter-spacing:1.5px;text-transform:uppercase;color:var(--dark3);font-weight:600}
+.rp-body{max-width:820px;margin:0 auto;padding:2.5rem 2rem 4rem}
+.rp-intro{background:var(--gold-light);border-left:4px solid var(--gold);padding:1.2rem 1.5rem;border-radius:0 4px 4px 0;font-size:0.93rem;line-height:1.7;color:var(--ink);margin-bottom:2rem;font-style:italic}
+.rp-section-title{font-family:'Cormorant Garamond',serif;font-size:1.6rem;font-weight:700;color:var(--ink);margin:2.5rem 0 1rem;display:flex;align-items:center;gap:0.8rem}
+.rp-section-title::before{content:'';width:4px;height:1.4rem;background:var(--gold);border-radius:2px;flex-shrink:0}
+.ingredients-grid{display:grid;grid-template-columns:1fr 1fr;gap:0.5rem;margin-bottom:1rem}
+@media(max-width:500px){.ingredients-grid{grid-template-columns:1fr}}
+.ing-item{background:var(--white);border:1px solid var(--border);padding:0.6rem 0.9rem;border-radius:3px;font-size:0.85rem;display:flex;align-items:center;gap:0.5rem}
+.ing-item::before{content:'✦';color:var(--gold);font-size:0.7rem;flex-shrink:0}
+.steps-list{list-style:none;counter-reset:steps}
+.step-item{counter-increment:steps;display:flex;gap:1rem;margin-bottom:1.2rem;align-items:flex-start}
+.step-num{background:var(--gold);color:var(--dark);width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:0.78rem;font-weight:700;flex-shrink:0;margin-top:2px}
+.step-text{font-size:0.9rem;line-height:1.7;color:var(--text)}
+.rp-tips{background:var(--dark);border-radius:4px;padding:1.5rem;margin-top:1.5rem}
+.rp-tips-title{font-family:'Cormorant Garamond',serif;color:var(--gold);font-size:1.1rem;font-weight:600;margin-bottom:1rem}
+.rp-tip-item{display:flex;gap:0.7rem;margin-bottom:0.6rem;font-size:0.84rem;color:#bbb;align-items:flex-start;line-height:1.5}
+.rp-tip-item::before{content:'→';color:var(--gold);flex-shrink:0;font-weight:700}
+.rp-nav-btn{display:inline-flex;align-items:center;gap:0.5rem;background:var(--dark);color:var(--white);padding:11px 22px;border-radius:2px;font-size:0.82rem;font-weight:500;cursor:pointer;transition:all .2s;border:none;letter-spacing:.5px}
+.rp-nav-btn:hover{background:var(--gold);color:var(--dark)}
+.load-more-btn{display:block;margin:2.5rem auto 0;background:var(--white);color:var(--dark);padding:12px 36px;border:2px solid var(--border2);cursor:pointer;font-family:'Inter',sans-serif;font-size:0.85rem;font-weight:600;letter-spacing:1px;border-radius:2px;transition:all .2s}
+.load-more-btn:hover{background:var(--dark);color:var(--white);border-color:var(--dark)}
+.hidden{display:none!important}
 </style>
 </head>
 <body>
 
+<!-- HEADER -->
 <header>
-  <div class="logo">La <span>Cuchara</span> de Oro</div>
+  <div class="logo-wrap">
+    <div class="logo-icon">🥄</div>
+    <div>
+      <div class="logo-text">La <span>Cuchara</span> de Oro</div>
+      <span class="logo-sub">Recetas Caseras · España</span>
+    </div>
+  </div>
   <nav>
-    <a href="#" class="hide-mobile" onclick="showHome();return false">Inicio</a>
-    <a href="#" class="hide-mobile">Categorías</a>
-    <a href="#" class="hide-mobile">Sobre mí</a>
-    <input class="nav-search" type="text" placeholder="🔍 Buscar receta..." id="searchInput" oninput="filterCards()">
+    <a href="#" class="nav-link" onclick="showHome();return false">Inicio</a>
+    <a href="#" class="nav-link" onclick="showHome();return false">Recetas</a>
+    <a href="#" class="nav-link">Temporada</a>
+    <a href="#" class="nav-link">Sobre mí</a>
   </nav>
+  <div class="search-wrap">
+    <span class="search-icon">🔍</span>
+    <input type="text" id="searchInput" placeholder="Buscar receta..." oninput="searchRecipes()">
+  </div>
 </header>
 
-<!-- ========== HOME PAGE ========== -->
+<!-- ══════════ HOME PAGE ══════════ -->
 <div id="home-page">
 
 <section class="hero">
-  <div class="hero-bg"></div>
-  <div class="hero-inner">
-    <span class="hero-tag">🍽️ Cocina Casera Española</span>
-    <h1>Recetas que saben a <em>hogar</em> de verdad</h1>
-    <p>Más de 40 recetas probadas, con todos los trucos explicados paso a paso. Sin complicaciones, con mucho sabor.</p>
-    <div class="hero-btns">
-      <button class="btn-gold" onclick="scrollToRecipes()">Ver todas las recetas ↓</button>
-      <button class="btn-outline" onclick="openRecipe('paella')">Receta del día →</button>
+  <div class="hero-pattern"></div>
+  <div class="hero-lines"></div>
+  <div class="hero-content">
+    <div class="hero-left">
+      <div class="hero-eyebrow">
+        <div class="eyebrow-line"></div>
+        <span class="eyebrow-text">Cocina Casera Española</span>
+      </div>
+      <h1>Cocina que<br>sabe a <em>hogar</em><br>de verdad</h1>
+      <p class="hero-desc">Más de 60 recetas tradicionales probadas y perfeccionadas. Ingredientes sencillos, técnicas explicadas, resultados extraordinarios.</p>
+      <div class="hero-actions">
+        <button class="btn-primary" onclick="scrollToMain()">Explorar recetas</button>
+        <button class="btn-secondary" onclick="openRecipe('tarta-queso')">Receta del día →</button>
+      </div>
+    </div>
+    <div class="hero-right">
+      <div class="hero-card" onclick="openRecipe('paella')">
+        <div class="hc-emoji-lg">🦐</div>
+        <div>
+          <div class="hc-tag">Receta estrella</div>
+          <div class="hc-title">Paella valenciana auténtica</div>
+          <div class="hc-meta">⏱ 60 min · ⭐ 4.9 · 👤 6 pers.</div>
+        </div>
+      </div>
+      <div class="hero-card" onclick="openRecipe('tarta-queso')">
+        <div class="hc-emoji">🍰</div>
+        <div class="hc-tag">TOP valorada</div>
+        <div class="hc-title">Tarta de queso vasca</div>
+        <div class="hc-meta">⭐ 5.0</div>
+      </div>
+      <div class="hero-card" onclick="openRecipe('cocido')">
+        <div class="hc-emoji">🥘</div>
+        <div class="hc-tag">Clásico</div>
+        <div class="hc-title">Cocido madrileño</div>
+        <div class="hc-meta">⭐ 4.9</div>
+      </div>
+      <div class="hero-card" onclick="openRecipe('croquetas')">
+        <div class="hc-emoji">🍘</div>
+        <div class="hc-tag">La más vista</div>
+        <div class="hc-title">Croquetas de jamón</div>
+        <div class="hc-meta">⭐ 4.8</div>
+      </div>
     </div>
   </div>
 </section>
 
-<div class="stats-bar">
-  <div class="stat"><strong>40+</strong><span>Recetas</span></div>
-  <div class="stat"><strong>12 k</strong><span>Lectores</span></div>
-  <div class="stat"><strong>4.8★</strong><span>Valoración</span></div>
-  <div class="stat"><strong>8</strong><span>Categorías</span></div>
+<div class="ribbon">
+  <div class="ribbon-item"><div class="ribbon-num">60+</div><div class="ribbon-label">Recetas</div></div>
+  <div class="ribbon-item"><div class="ribbon-num">8</div><div class="ribbon-label">Categorías</div></div>
+  <div class="ribbon-item"><div class="ribbon-num">4.8★</div><div class="ribbon-label">Valoración media</div></div>
+  <div class="ribbon-item"><div class="ribbon-num">15k</div><div class="ribbon-label">Lectores</div></div>
+  <div class="ribbon-item"><div class="ribbon-num">100%</div><div class="ribbon-label">Probadas</div></div>
 </div>
 
-<div class="ad-banner">
-  <div class="ad-ph"><strong>Google AdSense – Leaderboard 728×90</strong>Pega aquí tu código de AdSense</div>
+<div class="ad-band">
+  <div class="ad-ph"><b>Google AdSense – Leaderboard 728×90</b>Pega aquí tu código de AdSense para mostrar anuncios</div>
 </div>
 
-<div class="container">
-  <div class="layout">
-    <main id="main-content">
+<!-- CATEGORIES SHOWCASE -->
+<section class="cat-showcase">
+  <div style="max-width:1200px;margin:0 auto;text-align:center">
+    <div class="sec-label" style="justify-content:center">Explorar por tipo</div>
+    <h2 style="font-family:'Cormorant Garamond',serif;font-size:2.2rem;font-weight:700">¿Qué te apetece cocinar hoy?</h2>
+  </div>
+  <div class="cat-grid">
+    <div class="cat-block" onclick="filterAndScroll('arroces')"><span class="cat-emoji">🍚</span><div class="cat-block-name">Arroces</div><div class="cat-block-sub">Paellas · Caldosos · Secos</div></div>
+    <div class="cat-block" onclick="filterAndScroll('carnes')"><span class="cat-emoji">🥩</span><div class="cat-block-name">Carnes</div><div class="cat-block-sub">Guisos · Asados · Estofados</div></div>
+    <div class="cat-block" onclick="filterAndScroll('pescados')"><span class="cat-emoji">🐟</span><div class="cat-block-name">Pescados</div><div class="cat-block-sub">Bacalao · Merluza · Mariscos</div></div>
+    <div class="cat-block" onclick="filterAndScroll('sopas')"><span class="cat-emoji">🍲</span><div class="cat-block-name">Sopas y Potajes</div><div class="cat-block-sub">Gazpacho · Cocidos · Lentejas</div></div>
+    <div class="cat-block" onclick="filterAndScroll('verduras')"><span class="cat-emoji">🥦</span><div class="cat-block-name">Verduras</div><div class="cat-block-sub">Pisto · Menestra · Ensaladas</div></div>
+    <div class="cat-block" onclick="filterAndScroll('postres')"><span class="cat-emoji">🍮</span><div class="cat-block-name">Postres</div><div class="cat-block-sub">Flan · Tartas · Cremas</div></div>
+    <div class="cat-block" onclick="filterAndScroll('basicos')"><span class="cat-emoji">🥚</span><div class="cat-block-name">Básicos</div><div class="cat-block-sub">Tortilla · Croquetas · Salsas</div></div>
+    <div class="cat-block" onclick="filterAndScroll('tapas')"><span class="cat-emoji">🫒</span><div class="cat-block-name">Tapas</div><div class="cat-block-sub">Patatas · Pinchos · Montaditos</div></div>
+  </div>
+</section>
 
-      <div class="sec-head" style="margin-top:0.5rem">
-        <h2 class="sec-title">Todas las recetas</h2>
-        <p class="sec-sub">Cocina española tradicional · Actualizado cada semana</p>
+<!-- MAIN CONTENT -->
+<div class="container" id="main-section">
+  <div class="page-layout">
+    <main>
+      <div class="sec-head" style="padding-top:0.5rem">
+        <div class="sec-label">Todas las recetas</div>
+        <h2 class="sec-title">Cocina española de verdad</h2>
+        <div class="sec-line"></div>
       </div>
 
-      <div class="cat-tabs" id="catTabs">
-        <button class="cat-tab active" onclick="filterCat('todo',this)">Todas</button>
-        <button class="cat-tab" onclick="filterCat('arroces',this)">🍚 Arroces</button>
-        <button class="cat-tab" onclick="filterCat('carnes',this)">🥩 Carnes</button>
-        <button class="cat-tab" onclick="filterCat('pescados',this)">🐟 Pescados</button>
-        <button class="cat-tab" onclick="filterCat('sopas',this)">🍲 Sopas</button>
-        <button class="cat-tab" onclick="filterCat('verduras',this)">🥦 Verduras</button>
-        <button class="cat-tab" onclick="filterCat('postres',this)">🍮 Postres</button>
-        <button class="cat-tab" onclick="filterCat('basicos',this)">🥚 Básicos</button>
-        <button class="cat-tab" onclick="filterCat('rapidos',this)">⚡ Rápidos</button>
+      <div class="filter-bar" id="filterBar">
+        <button class="f-tab active" onclick="setFilter('todo',this)">Todas</button>
+        <button class="f-tab" onclick="setFilter('arroces',this)">🍚 Arroces</button>
+        <button class="f-tab" onclick="setFilter('carnes',this)">🥩 Carnes</button>
+        <button class="f-tab" onclick="setFilter('pescados',this)">🐟 Pescados</button>
+        <button class="f-tab" onclick="setFilter('sopas',this)">🍲 Sopas</button>
+        <button class="f-tab" onclick="setFilter('verduras',this)">🥦 Verduras</button>
+        <button class="f-tab" onclick="setFilter('postres',this)">🍮 Postres</button>
+        <button class="f-tab" onclick="setFilter('basicos',this)">🥚 Básicos</button>
+        <button class="f-tab" onclick="setFilter('tapas',this)">🫒 Tapas</button>
       </div>
 
-      <div class="cards" id="cardsGrid"></div>
-      <button class="load-more hidden" id="loadMoreBtn" onclick="loadMore()">Cargar más recetas ↓</button>
-
+      <div class="grid" id="recipeGrid"></div>
+      <button class="load-more-btn hidden" id="loadBtn" onclick="loadMore()">Cargar más recetas ↓</button>
     </main>
 
     <aside>
-      <div class="ad-ph-sm"><strong>AdSense 300×250</strong>Medium Rectangle</div>
-      <div style="height:1rem"></div>
-
+      <div class="ad-side"><b>AdSense 300×250</b>Medium Rectangle – Pega tu código aquí</div>
+      <div style="height:1.2rem"></div>
       <div class="widget">
-        <div class="widget-title">🔥 Las más populares</div>
-        <ul class="pop-list" id="popularList"></ul>
+        <div class="w-head"><span>🔥 Las más populares</span></div>
+        <div class="w-body" id="popularWidget"></div>
       </div>
-
       <div class="widget">
-        <div class="widget-title">🗂️ Categorías</div>
-        <div class="cats-widget">
-          <span class="cat-w" onclick="filterCat('arroces',null)">Arroces</span>
-          <span class="cat-w" onclick="filterCat('carnes',null)">Carnes</span>
-          <span class="cat-w" onclick="filterCat('pescados',null)">Pescados</span>
-          <span class="cat-w" onclick="filterCat('sopas',null)">Sopas</span>
-          <span class="cat-w" onclick="filterCat('verduras',null)">Verduras</span>
-          <span class="cat-w" onclick="filterCat('postres',null)">Postres</span>
-          <span class="cat-w" onclick="filterCat('basicos',null)">Básicos</span>
-          <span class="cat-w" onclick="filterCat('rapidos',null)">Rápidos</span>
-        </div>
+        <div class="w-head"><span>💡 Consejo del chef</span></div>
+        <div class="w-body"><div class="chef-tip" id="chefTipBox"></div></div>
       </div>
-
       <div class="widget">
-        <div class="widget-title">💡 Consejo del chef</div>
-        <div class="tip-box" id="chefTip"></div>
+        <div class="w-head"><span>🗂️ Explorar por categoría</span></div>
+        <div class="w-body"><div class="tag-cloud">
+          <span class="tag" onclick="filterAndScroll('arroces')">Arroces</span>
+          <span class="tag" onclick="filterAndScroll('carnes')">Carnes</span>
+          <span class="tag" onclick="filterAndScroll('pescados')">Pescados</span>
+          <span class="tag" onclick="filterAndScroll('sopas')">Sopas</span>
+          <span class="tag" onclick="filterAndScroll('verduras')">Verduras</span>
+          <span class="tag" onclick="filterAndScroll('postres')">Postres</span>
+          <span class="tag" onclick="filterAndScroll('basicos')">Básicos</span>
+          <span class="tag" onclick="filterAndScroll('tapas')">Tapas</span>
+        </div></div>
       </div>
-
-      <div style="height:1rem"></div>
-      <div class="ad-ph-sm"><strong>AdSense 300×600</strong>Half Page Ad</div>
+      <div style="height:1.2rem"></div>
+      <div class="ad-side" style="min-height:280px"><b>AdSense 300×600</b>Half Page – Pega tu código aquí</div>
     </aside>
   </div>
 </div>
 
 <!-- FEATURED -->
 <section class="featured">
-  <div class="feat-inner">
-    <div class="feat-img">🦐</div>
-    <div>
-      <span class="feat-tag">✨ RECETA DEL MES</span>
-      <h2>Paella valenciana: el socarrat perfecto</h2>
-      <p>Años de prueba y error condensados en una sola receta. El secreto está en el fuego, el arroz y la paciencia. Te lo explico todo.</p>
-      <button class="btn-gold" onclick="openRecipe('paella')">Leer receta completa →</button>
+  <div class="feat-wrap">
+    <div class="feat-visual">
+      <div class="feat-main-card">
+        <div class="feat-badge-card">✨ Receta del mes</div>
+        🦐
+      </div>
+      <div class="feat-mini-cards">
+        <div class="feat-mini" onclick="openRecipe('bacalao')"><div class="feat-mini-emoji">🐠</div><div class="feat-mini-title">Bacalao al pil pil</div></div>
+        <div class="feat-mini" onclick="openRecipe('cocido')"><div class="feat-mini-emoji">🥘</div><div class="feat-mini-title">Cocido madrileño</div></div>
+        <div class="feat-mini" onclick="openRecipe('tarta-queso')"><div class="feat-mini-emoji">🍰</div><div class="feat-mini-title">Tarta de queso</div></div>
+        <div class="feat-mini" onclick="openRecipe('croquetas')"><div class="feat-mini-emoji">🍘</div><div class="feat-mini-title">Croquetas de jamón</div></div>
+      </div>
+    </div>
+    <div class="feat-text">
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:1rem">
+        <div class="eyebrow-line"></div>
+        <span style="font-size:0.72rem;letter-spacing:3px;text-transform:uppercase;color:var(--gold);font-weight:600">Receta destacada</span>
+      </div>
+      <h2 style="font-family:'Cormorant Garamond',serif;color:var(--white);font-size:2.8rem;font-weight:700;line-height:1.1;margin-bottom:1rem">Paella valenciana: el socarrat perfecto</h2>
+      <p style="color:#999;font-weight:300;margin-bottom:2rem;line-height:1.7">Años de prueba condensados en una sola receta. El secreto está en el fuego, el arroz bomba y la paciencia. Sin atajos, sin mentiras. La paella de verdad.</p>
+      <button class="btn-primary" onclick="openRecipe('paella')">Leer la receta completa →</button>
     </div>
   </div>
 </section>
 
 <!-- TIPS -->
-<section class="tips">
-  <div class="container">
-    <h2 class="sec-title" style="text-align:center">Trucos de cocina esenciales</h2>
+<section class="tips-strip">
+  <div class="tips-inner">
+    <div style="display:flex;align-items:center;gap:1rem;margin-bottom:0">
+      <div class="eyebrow-line"></div>
+      <span style="font-size:0.7rem;letter-spacing:3px;text-transform:uppercase;color:var(--gold);font-weight:600">Sabiduría culinaria</span>
+    </div>
+    <h2 style="font-family:'Cormorant Garamond',serif;color:var(--white);font-size:2rem;font-weight:700;margin-top:0.5rem">Trucos que cambian tus platos</h2>
     <div class="tips-grid">
-      <div class="tip"><div class="tip-icon">🧂</div><h3>La sal, al final</h3><p>Sala siempre al final para no endurecer las proteínas ni perder jugos.</p></div>
-      <div class="tip"><div class="tip-icon">🔥</div><h3>Sartén bien caliente</h3><p>El dorado perfecto necesita temperatura alta desde el principio.</p></div>
-      <div class="tip"><div class="tip-icon">🫙</div><h3>Mise en place</h3><p>Prepara todos los ingredientes antes de encender el fuego. Cambio total.</p></div>
-      <div class="tip"><div class="tip-icon">⏳</div><h3>El reposo importa</h3><p>Carnes y arroces necesitan reposar para que los jugos se redistribuyan.</p></div>
-      <div class="tip"><div class="tip-icon">🧄</div><h3>Ajo sin germen</h3><p>Quita el germen verde del ajo para evitar el sabor amargo y la digestión pesada.</p></div>
-      <div class="tip"><div class="tip-icon">🍋</div><h3>Ácido al servir</h3><p>Un chorrito de limón o vinagre al final realza todos los sabores.</p></div>
+      <div class="tip-card"><div class="tip-icon">🧄</div><div class="tip-title">Ajo sin amargor</div><div class="tip-text">Quita siempre el germen verde interior. Es responsable del sabor amargo y la pesada digestión.</div></div>
+      <div class="tip-card"><div class="tip-icon">🔥</div><div class="tip-title">El sellado perfecto</div><div class="tip-text">La sartén debe estar muy caliente antes del aceite. El contacto con el frío hace que la carne suelte jugos.</div></div>
+      <div class="tip-card"><div class="tip-icon">⏳</div><div class="tip-title">El reposo es sagrado</div><div class="tip-text">Toda carne asada necesita 5-10 minutos de reposo. Los jugos se redistribuyen y está más jugosa.</div></div>
+      <div class="tip-card"><div class="tip-icon">🧂</div><div class="tip-title">Sal en el momento exacto</div><div class="tip-text">En carnes rojas, sala justo antes de cocinar o al servir. En pescados, 10 minutos antes.</div></div>
+      <div class="tip-card"><div class="tip-icon">🍋</div><div class="tip-title">El toque ácido final</div><div class="tip-text">Un chorrito de limón o vinagre de Jerez al servir realza todos los sabores. Pruébalo siempre.</div></div>
+      <div class="tip-card"><div class="tip-icon">🫙</div><div class="tip-title">Mise en place</div><div class="tip-text">Prepara y mide todo antes de encender el fuego. Cambia completamente la experiencia de cocinar.</div></div>
     </div>
   </div>
 </section>
 
-<div class="ad-banner" style="margin:0">
-  <div class="ad-ph"><strong>Google AdSense – In-content Banner</strong>728×90 – Alta visibilidad entre contenido</div>
+<div class="ad-band">
+  <div class="ad-ph"><b>Google AdSense – In-Content Banner</b>728×90 · Alta visibilidad entre el contenido</div>
 </div>
 
-<!-- NEWSLETTER -->
 <section class="newsletter">
-  <h2>Recetas cada semana en tu email 📩</h2>
-  <p>Únete a 12.000 lectores que reciben mis recetas los miércoles. Sin spam, solo cocina.</p>
-  <div class="nl-form">
-    <input type="email" placeholder="tu@email.com">
-    <button>Suscribirse</button>
+  <div class="nl-wrap">
+    <div class="nl-label">Boletín semanal</div>
+    <h2>Recetas en tu bandeja de entrada</h2>
+    <p>Cada miércoles, una receta nueva con todos sus trucos. Sin spam, solo cocina buena.</p>
+    <div class="nl-form">
+      <input type="email" placeholder="tucorreo@email.com">
+      <button>Suscribirme →</button>
+    </div>
+    <p style="font-size:0.75rem;color:var(--muted);margin-top:1rem">Ya somos 15.000 lectores · Cancela cuando quieras</p>
   </div>
 </section>
 
-</div><!-- end home-page -->
+</div><!-- /home-page -->
 
-<!-- ========== RECIPE PAGE ========== -->
+<!-- ══════════ RECIPE PAGE ══════════ -->
 <div id="recipe-page">
-  <button class="back-link" onclick="showHome()">← Volver a todas las recetas</button>
-  <div class="r-header">
-    <div class="r-emoji" id="rEmoji"></div>
-    <h1 id="rTitle"></h1>
-    <p id="rDesc"></p>
-    <div class="r-rating"><span class="stars" id="rStars"></span><span id="rRatingText" style="color:#aaa;font-size:0.85rem"></span></div>
+  <div style="background:var(--dark);padding:0.8rem 3rem;display:flex;align-items:center;gap:0.5rem;border-bottom:1px solid rgba(255,255,255,0.08)">
+    <button class="rp-nav-btn" onclick="showHome()" style="padding:7px 16px;font-size:0.78rem">← Volver</button>
+    <span style="font-size:0.78rem;color:#666;margin-left:0.5rem" id="rpBreadcrumb">Inicio / Recetas</span>
   </div>
-  <div class="r-meta-bar">
-    <span id="rTime"></span><span id="rPersons"></span><span id="rDiff"></span><span id="rCal"></span>
+  <div class="rp-hero">
+    <div class="rp-hero-bg"></div>
+    <div class="rp-emoji" id="rpEmoji"></div>
+  <div id="rpHeroImg"></div>
+    <h1 id="rpTitle"></h1>
+    <p id="rpDesc"></p>
+    <div class="rp-rating"><span class="rp-stars" id="rpStars"></span><span id="rpVotes" style="color:#777;font-size:0.82rem;margin-left:4px"></span></div>
   </div>
-  <div class="r-body">
-    <div class="ad-ph" style="margin-bottom:1.5rem"><strong>AdSense – In-article Ad (336×280)</strong>El espacio más rentable dentro del contenido</div>
-    <div id="rContent"></div>
-    <div class="ad-ph" style="margin-top:2rem"><strong>AdSense – End of Content</strong>728×90 · Alta visibilidad</div>
+  <div class="rp-meta-bar" id="rpMeta"></div>
+  <div class="rp-body">
+    <div class="ad-ph" style="margin-bottom:2rem"><b>AdSense – In-article Ad 336×280</b>El espacio más rentable dentro del contenido</div>
+    <div id="rpContent"></div>
+    <div class="ad-ph" style="margin-top:2.5rem"><b>AdSense – End of Content 728×90</b>Alta visibilidad al final del artículo</div>
+    <div style="margin-top:2rem;display:flex;justify-content:center">
+      <button class="rp-nav-btn" onclick="showHome()">← Volver a todas las recetas</button>
+    </div>
   </div>
-  <button class="back-link" onclick="showHome()">← Volver a todas las recetas</button>
 </div>
 
 <footer>
-  <div class="footer-links">
-    <a href="#">Inicio</a><a href="privacidad.html">Política de privacidad</a>
-    <a href="aviso-legal.html">Aviso legal</a><a href="#">Contacto</a><a href="#">Mapa web</a>
+  <div class="footer-top">
+    <div class="footer-brand">
+      <span class="logo-text">La <span style="color:var(--gold2)">Cuchara</span> de Oro</span>
+      <p>Recetas caseras españolas probadas y perfeccionadas. Cocina de verdad, sin artificios, con todo el sabor de siempre.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Categorías</h4>
+      <a href="#" onclick="filterAndScroll('arroces');return false">Arroces</a>
+      <a href="#" onclick="filterAndScroll('carnes');return false">Carnes</a>
+      <a href="#" onclick="filterAndScroll('pescados');return false">Pescados</a>
+      <a href="#" onclick="filterAndScroll('sopas');return false">Sopas</a>
+    </div>
+    <div class="footer-col">
+      <h4>Más recetas</h4>
+      <a href="#" onclick="filterAndScroll('verduras');return false">Verduras</a>
+      <a href="#" onclick="filterAndScroll('postres');return false">Postres</a>
+      <a href="#" onclick="filterAndScroll('basicos');return false">Básicos</a>
+      <a href="#" onclick="filterAndScroll('tapas');return false">Tapas</a>
+    </div>
+    <div class="footer-col">
+      <h4>Información</h4>
+      <a href="privacidad.html">Política de privacidad</a>
+      <a href="aviso-legal.html">Aviso legal</a>
+      <a href="#">Sobre mí</a>
+      <a href="#">Contacto</a>
+    </div>
   </div>
-  <p>&copy; 2025 La Cuchara de Oro · Todos los derechos reservados · Hecho con ❤️ en España</p>
+  <div class="footer-bottom">
+    <span>&copy; 2025 La Cuchara de Oro · Todos los derechos reservados</span>
+    <span style="color:#555">Hecho con ❤️ en España</span>
+  </div>
 </footer>
 
 <script>
-const RECIPES = [
-  {id:'tortilla',emoji:'🍳',cat:'basicos',title:'Tortilla de patatas perfecta',desc:'El icono de la cocina española. Jugosa por dentro, dorada por fuera.',time:'35 min',persons:'4 pers.',diff:'Fácil',diffClass:'diff-facil',cal:'280 kcal',rating:4.9,votes:1247,badge:'top',popular:true,
-  intro:'La tortilla de patatas es probablemente el plato más conocido de España. La diferencia entre una buena tortilla y una mediocre está en tres cosas: la calidad del aceite, la paciencia en la cocción y el punto de jugosidad.',
-  ingredients:['5 huevos grandes a temperatura ambiente','500 g de patatas medianas (mejor Monalisa o Kennebec)','1 cebolla mediana (muy recomendada)','Aceite de oliva virgen extra (abundante)','Sal fina al gusto'],
-  steps:['Pela y corta las patatas en láminas de 2-3 mm. Si añades cebolla, córtala en juliana fina.','Calienta abundante aceite en sartén amplia a fuego medio-bajo (no debe humear). Añade patatas y cebolla con una pizca de sal.','Fríe despacio 20-25 minutos removiendo con cuidado. Las patatas deben quedar tiernas y ligeramente doradas, nunca crujientes.','Bate los huevos con sal. Escurre bien las patatas y mézclalas con el huevo batido. Deja reposar 5 minutos.','En sartén antiadherente de 22-24 cm con un poco de aceite caliente, vierte la mezcla. Cuaja a fuego medio 3-4 min moviendo la sartén.','El volteo: tapa con un plato plano y gira con un movimiento rápido y decidido. Desliza de vuelta a la sartén 2-3 min más.','Deja reposar 5 minutos en la sartén apagada. ¡Debe quedar ligeramente jugosa en el centro!'],
-  tips:['Usa siempre huevos de corral: el color y sabor son incomparables','El fuego bajo es el verdadero secreto, no tengas prisa','Una tortilla de buen tamaño necesita mínimo 5 huevos']},
+const R = [
+  // ── ARROCES ──
+  {id:'paella',wiki:'Paella',e:'🦐',c:'arroces',t:'Paella valenciana auténtica',d:'La receta original. Pollo, conejo y el socarrat perfecto.',time:'60 min',p:'6 pers.',dif:'Media',dc:'media',cal:'420 kcal',rat:4.9,v:2341,b:'top',pop:true,
+  img:'img/paella.svg',
+  intro:'La paella valenciana es uno de los platos más malinterpretados del mundo. La original no lleva marisco: es pollo, conejo y verduras de huerta valenciana. El secreto está en el fuego vivo de leña, el arroz bomba y conseguir el socarrat.',
+  ing:['400 g de arroz bomba','600 g de pollo (muslos y contramuslos)','400 g de conejo troceado','200 g de judías verdes planas (ferraura)','150 g de garrofón fresco o congelado','2 tomates maduros rallados','1 cucharadita de pimentón dulce de la Vera','Hebras de azafrán tostadas en seco','Aceite de oliva, sal, romero fresco','1,2 L de agua o caldo de pollo caliente'],
+  s:['Calienta aceite en la paellera a fuego fuerte. Sala el pollo y el conejo y dóralos 10 min por todos lados. Reserva.','Sofríe las judías y el garrofón en el mismo aceite 5 min. Añade el tomate rallado hasta que evapore (8 min).','Agrega el pimentón, remueve 30 segundos sin que se queme, y vierte el agua caliente con el azafrán.','Devuelve las carnes, lleva a ebullición fuerte 10 min. Rectifica de sal.','Añade el arroz en cruz y extiéndelo sin remover más. Coloca el romero.','Cocina 8 min a fuego fuerte y 10 min a fuego medio sin tapar.','Últimos 2 min: sube el fuego para el socarrat. Escucha: chisporroteo suave sin quemar.','Cubre con papel y reposa 5 min.'],
+  tips:['Nunca remuevas el arroz una vez añadido','El socarrat es el arroz pegado al fondo: es un premio, no un error','Sin paellera, una sartén grande y plana funciona perfectamente']},
 
-  {id:'paella',emoji:'🦐',cat:'arroces',title:'Paella valenciana auténtica',desc:'La receta original con el socarrat perfecto. Todos los secretos.',time:'60 min',persons:'6 pers.',diff:'Media',diffClass:'diff-media',cal:'420 kcal',rating:4.9,votes:2341,badge:'top',popular:true,
-  intro:'La paella valenciana es uno de los platos más malinterpretados del mundo. La receta original no lleva marisco: es pollo, conejo y verduras de huerta. El secreto está en el fuego, el arroz bomba y conseguir el socarrat.',
-  ingredients:['400 g de arroz bomba','600 g de pollo troceado (muslos y contramuslos)','400 g de conejo troceado','200 g de judías verdes planas (ferraura)','150 g de garrofón fresco o congelado','2 tomates maduros rallados','1 cucharadita de pimentón dulce de la Vera','Hebras de azafrán (tostadas en seco)','Aceite de oliva, sal, romero fresco','1,2 L de agua o caldo de pollo caliente'],
-  steps:['Calienta aceite en la paellera a fuego fuerte. Sala el pollo y el conejo y dóralos bien por todos lados (10 min). Retira y reserva.','En el mismo aceite sofríe las judías y el garrofón 5 min. Añade el tomate rallado y sofríe hasta que evapore completamente (8 min).','Agrega el pimentón, remueve 30 segundos sin que se queme, y añade el agua caliente con las hebras de azafrán.','Devuelve las carnes, lleva a ebullición fuerte 10 min. Prueba de sal y rectifica.','Añade el arroz en forma de cruz y extiéndelo uniformemente sin volver a remover. Coloca el romero encima.','Cocina 8 min a fuego fuerte y 10 min a fuego medio sin tapar y sin mover.','Los últimos 2 min sube el fuego para el socarrat. Escucha: debe oírse un ligero chisporroteo pero sin quemar.','Cubre con papel de periódico o aluminio y reposa 5 min. ¡Listo para servir!'],
-  tips:['Nunca remuevas el arroz una vez añadido','El socarrat es el arroz pegado al fondo: es un premio, no un error','Si no tienes paellera, una sartén grande plana funciona']},
+  {id:'arroz-caldoso',wiki:'Arroz_caldoso',e:'🦞',c:'arroces',t:'Arroz caldoso con bogavante',d:'El arroz más festivo. Un caldo que es pura esencia de mar.',time:'50 min',p:'4 pers.',dif:'Media',dc:'media',cal:'380 kcal',rat:4.8,v:876,b:'fav',
+  img:'img/arroz-caldoso.svg',
+  intro:'El arroz caldoso con bogavante es el rey de los arroces festivos. Su secreto está en el sofrito y en un buen fumet casero. Con el bogavante vivo el sabor es incomparable.',
+  ing:['2 bogavantes vivos cortados en medallones','300 g de arroz bomba','1 cebolla, 2 tomates maduros, 3 dientes de ajo','1 ñora remojada','Pimentón dulce, azafrán, perejil','1,2 L de fumet de pescado caliente','Aceite de oliva, sal, brandy'],
+  s:['Saltea los medallones de bogavante en aceite muy caliente 2 min por lado. Flambea con brandy. Reserva.','Sofríe la cebolla 10 min, añade el ajo y los tomates. Sofríe hasta que casi desaparezca el líquido.','Añade la carne de ñora, el pimentón y remueve. Vierte el fumet caliente y lleva a ebullición.','Añade el arroz y cocina 10 min a fuego fuerte.','Baja a fuego medio, añade el bogavante y cocina 7 min más.','El arroz debe quedar caldoso. Reposa 2 min y sirve inmediatamente.'],
+  tips:['El bogavante da todo su sabor al caldo: no escatimes','El fumet casero marca la diferencia total','Debe servirse inmediatamente: este arroz no espera']},
 
-  {id:'cocido',emoji:'🥘',cat:'carnes',title:'Cocido Madrileño tradicional',desc:'Los tres vuelcos del plato más emblemático de Madrid.',time:'3 horas',persons:'6 pers.',diff:'Media',diffClass:'diff-media',cal:'580 kcal',rating:4.9,votes:987,badge:'fav',popular:true,
-  intro:'El cocido madrileño es mucho más que un plato: es un ritual. Sus tres vuelcos (sopa, garbanzos y carnes) se sirven en orden y cada uno tiene su propio carácter. Es el plato de domingo por excelencia.',
-  ingredients:['300 g de garbanzos (remojados 12h en agua con sal)','300 g de morcillo de ternera','1 carcasa de pollo y 1 muslo','150 g de tocino fresco','1 chorizo y 1 morcilla de calidad','2 patatas, 2 zanahorias, 1 nabo','200 g de repollo o berza','150 g de fideos finos (nº1)','Sal, pimentón dulce, aceite de oliva, 3 dientes de ajo'],
-  steps:['En olla grande pon las carnes, el tocino y los garbanzos (en malla). Cubre con agua fría abundante (4L). Lleva a ebullición a fuego muy lento.','Cuando rompa a hervir, desespuma con paciencia hasta que el caldo quede limpio. Es fundamental para un buen sabor.','Baja el fuego al mínimo y cocina 1,5 horas tapado. Añade las patatas, zanahorias y nabo. Cocina 30 min más. Añade chorizo y morcilla la última hora.','Primer vuelco – Sopa: cuela 1 litro de caldo, hiérvelo y cuece los fideos 5 min. Sirve con el caldo.',  'Segundo vuelco – Verduras: sirve los garbanzos con zanahoria y patata cocida. Un chorrito de aceite de oliva por encima.','Tercer vuelco – Carnes: sirve las carnes troceadas. Aparte, saltea el repollo picado en aceite con ajo laminado y pimentón. Sirve junto.'],
-  tips:['Agua fría desde el principio: las carnes sueltan todo su sabor','Nunca subas el fuego: la cocción lenta es el secreto','El caldo sobrante congela perfecto para sopas futuras']},
+  {id:'arroz-leche',wiki:'Arroz_con_leche',e:'🍚',c:'postres',t:'Arroz con leche asturiano',d:'El postre más cremoso de España. Con su canela y limón.',time:'50 min',p:'6 pers.',dif:'Fácil',dc:'facil',cal:'240 kcal',rat:4.8,v:1102,b:'fav',pop:true,
+  img:'img/arroz-leche.svg',
+  intro:'El arroz con leche asturiano es diferente al resto: más cremoso, con corteza de limón y canela en rama, y con una capa de azúcar quemado opcional. La paciencia y el removido constante son los ingredientes secretos.',
+  ing:['200 g de arroz grano corto (bomba)','1,2 L de leche entera','200 ml de nata líquida','150 g de azúcar','Corteza de 1 limón sin tratar','1 rama de canela en rama','Canela en polvo para decorar'],
+  s:['Lava el arroz en agua fría hasta que salga casi transparente.','Hierve la leche con la nata, la corteza de limón y la canela. Añade el arroz.','Cocina a fuego muy suave 35-40 min removiendo constantemente con cuchara de madera.','Añade el azúcar los últimos 10 min. El arroz absorbe la leche paulatinamente.','Debe quedar muy cremoso: añade leche caliente si se queda seco.','Retira aromáticos, vierte en cuencos, enfría. Espolvorea canela al servir.'],
+  tips:['Remueve sin parar o se pegará','Cuanto más lenta la cocción, más cremoso el resultado','Se espesa al enfriar: déjalo más líquido de lo que quieres']},
 
-  {id:'gazpacho',emoji:'🫙',cat:'sopas',title:'Gazpacho andaluz casero',desc:'Fresco, sabroso y listo en 15 minutos. El verano en un vaso.',time:'15 min',persons:'6 pers.',diff:'Fácil',diffClass:'diff-facil',cal:'95 kcal',rating:4.7,votes:1823,badge:'new',
-  intro:'El gazpacho es la receta de verano por excelencia. El secreto está en usar tomates maduros de calidad y en emulsionar bien con el aceite. Un gazpacho bien hecho tiene textura cremosa, no aguada.',
-  ingredients:['1 kg de tomates muy maduros (tipo pera o de campo)','1 pimiento verde italiano','1 pepino mediano pelado','1 diente de ajo sin germen','50 ml de aceite de oliva virgen extra (buen aceite)','20 ml de vinagre de Jerez','Sal al gusto · Agua muy fría si se quiere más ligero'],
-  steps:['Lava y trocea tomates, pimiento y pepino. No hace falta pelar los tomates si tienes batidora potente.','Mete todo en la batidora junto con el ajo. Tritura a máxima potencia durante 2-3 minutos.','Sin parar la batidora, añade el aceite en hilo muy fino para que emulsione bien.','Añade el vinagre de Jerez y la sal. Prueba y ajusta. Es la clave del sabor final.','Cuela por colador fino para textura perfecta. Guarda en nevera mínimo 2 horas (mejor toda la noche).','Sirve muy frío con guarnición: daditos de pepino, pimiento rojo, cebolleta, pan frito y huevo duro.'],
-  tips:['La calidad del tomate lo es todo: en verano, de mercado','El vinagre de Jerez marca la diferencia frente al vinagre normal','Añade una rebanada de pan del día anterior para más cuerpo']},
+  {id:'fideuà',wiki:'Fideuà',e:'🦐',c:'arroces',t:'Fideuà de marisco',d:'El fideo tostado con todo el sabor del mar.',time:'45 min',p:'6 pers.',dif:'Media',dc:'media',cal:'390 kcal',rat:4.7,v:543,
+  img:'img/arroz-caldoso.svg',
+  intro:'La fideuà es la prima valenciana de la paella, pero con fideos tostados en lugar de arroz. El resultado es un plato con mucho más sabor a mar y una textura única.',
+  ing:['400 g de fideos nº2 o nº4','500 g de gambas y cigalas','300 g de mejillones','1 sepia troceada','2 tomates rallados, 2 dientes de ajo, 1 cebolla','Pimentón, azafrán','1 L de fumet de pescado','Aceite de oliva, sal, alioli para acompañar'],
+  s:['Tuesta los fideos en la paellera con un poco de aceite hasta que estén dorados. Reserva.','Sofríe la cebolla y el ajo. Añade la sepia y sofríe 5 min. Añade el tomate hasta que evapore.','Incorpora el pimentón, el azafrán y el fumet caliente. Lleva a ebullición.','Añade los fideos tostados y distribuye uniformemente. Coloca gambas y cigalas encima.','Cocina 10-12 min a fuego medio-fuerte. Añade los mejillones los últimos 3 min.','Sirve con alioli casero para mezclar.'],
+  tips:['El tostado de los fideos es la clave diferencial','El fumet debe estar bien sazonado','El alioli no es opcional: es parte del plato']},
 
-  {id:'carrilleras',emoji:'🥩',cat:'carnes',title:'Carrilleras de cerdo al vino tinto',desc:'Melosas, tiernas y con una salsa para no parar de mojar pan.',time:'1,5 horas',persons:'4 pers.',diff:'Media',diffClass:'diff-media',cal:'480 kcal',rating:4.8,votes:654,badge:'fav',
-  intro:'Las carrilleras son uno de los cortes más infravalorados del cerdo. Bien cocinadas son absolutamente melosas. La clave está en la cocción lenta y en una buena reducción del vino.',
-  ingredients:['8 carrilleras de cerdo ibérico limpias de nervios','500 ml de vino tinto con cuerpo (Rioja o Ribera)','1 cebolla grande, 2 zanahorias, 3 dientes de ajo','1 rama de tomillo, 2 hojas de laurel, pimienta negra','Harina, aceite de oliva, sal','300 ml de caldo de carne o agua caliente'],
-  steps:['Salpimienta generosamente las carrilleras y enharínalas ligeramente. Sacude el exceso.','Dóralas en aceite muy caliente por todos lados hasta que tengan costra dorada. No muevas hasta que suelten solas. Reserva.','En la misma olla sofríe cebolla y zanahoria en dados 10 min. Añade el ajo laminado 2 min más.','Vierte el vino y raspa bien el fondo de la olla para soltar los jugos caramelizados. Reduce a la mitad (10 min).','Añade el caldo, las hierbas y las carrilleras. Debe quedar casi cubierto. Tapa y cocina a fuego muy suave 1,5 horas (o olla a presión 35 min).','Retira las carrilleras con cuidado. Tritura la salsa y cuélala. Reduce si es necesario hasta que nape la cuchara.','Sirve con puré de patata y baña generosamente con la salsa.'],
-  tips:['Cuanto más lenta la cocción, más melosa la carne','El dorado inicial es fundamental para el sabor de la salsa','Prepáralas el día antes: de un día para otro están mucho mejores']},
+  // ── CARNES ──
+  {id:'cocido',wiki:'Cocido_madrileño',e:'🥘',c:'carnes',t:'Cocido Madrileño tradicional',d:'Los tres vuelcos del plato más emblemático de Madrid.',time:'3 horas',p:'6 pers.',dif:'Media',dc:'media',cal:'580 kcal',rat:4.9,v:987,b:'fav',pop:true,
+  img:'img/cocido.svg',
+  intro:'El cocido madrileño es un ritual culinario de tres actos. Sus tres vuelcos se sirven en orden y cada uno tiene su propio carácter. El mejor plato de domingo de la historia de la cocina española.',
+  ing:['300 g de garbanzos remojados 12h','300 g de morcillo de ternera','1 carcasa de pollo + 1 muslo','150 g de tocino fresco','1 chorizo y 1 morcilla','2 patatas, 2 zanahorias, 1 nabo','200 g de repollo','150 g de fideos finos nº1','Sal, pimentón, aceite, 3 dientes de ajo'],
+  s:['Pon las carnes y garbanzos (en malla) en olla grande con agua fría (4L). Lleva a ebullición muy lenta.','Cuando hierva, desespuma con paciencia hasta que el caldo quede limpio y transparente.','Baja al mínimo y cocina 1,5 horas tapado. Añade patatas, zanahorias y nabo. Cocina 30 min más. Añade chorizo y morcilla la última hora.','Primer vuelco – Sopa: cuela 1L de caldo, cuece los fideos 5 min. Sirve con pan.','Segundo vuelco – Garbanzos: sirve los garbanzos con verduras y un chorrito de aceite.','Tercer vuelco – Carnes: sirve troceadas. Saltea el repollo con ajo y pimentón.'],
+  tips:['Agua fría desde el principio para que las carnes suelten todo el sabor','Nunca subas el fuego: la cocción lenta es el secreto','El caldo sobrante congela perfecto para sopas']},
 
-  {id:'flan',emoji:'🍮',cat:'postres',title:'Flan casero con caramelo',desc:'El postre más clásico de España. Cremoso y perfecto.',time:'1 hora + reposo',persons:'8 pers.',diff:'Fácil',diffClass:'diff-facil',cal:'210 kcal',rating:4.9,votes:1456,badge:'top',popular:true,
+  {id:'carrilleras',wiki:'Carrillada',e:'🥩',c:'carnes',t:'Carrilleras de cerdo ibérico al vino',d:'Melosas, tiernas y con una salsa para mojar pan sin parar.',time:'1,5 horas',p:'4 pers.',dif:'Media',dc:'media',cal:'480 kcal',rat:4.8,v:654,b:'fav',
+  img:'img/carrilleras.svg',
+  intro:'Las carrilleras son el corte más infravalorado del cerdo ibérico. Bien cocinadas son absolutamente melosas. La clave está en la cocción lenta y en la reducción del vino.',
+  ing:['8 carrilleras de cerdo ibérico limpias','500 ml de vino tinto (Rioja o Ribera del Duero)','1 cebolla, 2 zanahorias, 3 dientes de ajo','Tomillo, laurel, pimienta negra','Harina, aceite de oliva, sal','300 ml de caldo de carne'],
+  s:['Salpimienta y enharina ligeramente las carrilleras. Dóralas en aceite muy caliente formando costra. Reserva.','Sofríe cebolla y zanahoria en dados 10 min. Añade el ajo 2 min.','Vierte el vino y raspa el fondo. Reduce a la mitad (10 min).','Añade el caldo, las hierbas y las carrilleras. Tapa y cocina a fuego mínimo 1,5 horas.','Retira las carrilleras con cuidado. Tritura y cuela la salsa. Reduce si es necesario.','Sirve con puré de patata y baña generosamente con la salsa.'],
+  tips:['Cuanto más lenta la cocción, más melosa la carne','El dorado inicial aporta el sabor a la salsa','Preparadas el día antes están infinitamente mejores']},
+
+  {id:'pollo-asado',wiki:'Pollo_asado',e:'🍗',c:'carnes',t:'Pollo asado al limón y hierbas',d:'Jugoso por dentro, piel crujiente dorada. El asado perfecto.',time:'1,5 horas',p:'4 pers.',dif:'Fácil',dc:'facil',cal:'380 kcal',rat:4.8,v:1678,b:'fav',
+  img:'img/pollo-asado.svg',
+  intro:'Un buen pollo asado parece simple pero esconde muchos trucos. La clave está en el marinado, la temperatura y en regar durante la cocción. Resultado: piel crujiente y carne jugosísima.',
+  ing:['1 pollo entero 1,5kg a temperatura ambiente','1 limón entero + zumo de otro','8 dientes de ajo (6 aplastados, 2 picados)','Romero y tomillo fresco','50 ml de aceite de oliva virgen extra','Sal gruesa, pimienta negra recién molida','500 g de patatas (opcional)'],
+  s:['Seca el pollo completamente con papel de cocina. La humedad es el enemigo de la piel crujiente.','Mezcla aceite, ajo picado, zumo de limón, sal y pimienta. Embadurna el pollo por dentro y fuera. Mete el limón entero y las hierbas dentro.','Deja marinar 1 hora a temperatura ambiente (o toda la noche en nevera).','Precalienta el horno a 200°C. Hornea 30 min, da la vuelta, hornea 30 min más. Riega con los jugos cada 20 min.','Últimos 10 min a 220°C para la piel crujiente.','Reposa 10 minutos antes de trinchar.'],
+  tips:['El pollo a temperatura ambiente es fundamental para cocción uniforme','Regar durante la cocción mantiene la carne jugosa','No saltes el reposo: los jugos se redistribuyen']},
+
+  {id:'albondigas',wiki:'Albóndigas',e:'🍝',c:'carnes',t:'Albóndigas en salsa de tomate',d:'Las de la abuela. Jugosas con su salsita y para mojar pan.',time:'50 min',p:'4 pers.',dif:'Fácil',dc:'facil',cal:'420 kcal',rat:4.8,v:1234,
+  img:'img/cocido.svg',
+  intro:'Las albóndigas caseras son uno de esos platos que nunca fallan. La mezcla de carnes y la salsa de tomate casera hacen que sean absolutamente irresistibles. Las de la abuela tenían un secreto: el pan remojado en leche.',
+  ing:['500 g de carne picada mixta (cerdo y ternera)','1 huevo, 2 dientes de ajo, perejil picado','50 g de pan rallado, 50 ml de leche','Sal, pimienta, nuez moscada','Para la salsa: 800 g de tomate triturado','1 cebolla, 2 dientes de ajo, albahaca fresca, azúcar'],
+  s:['Remoja el pan en la leche. Mezcla la carne con el huevo, ajo, perejil, pan escurrido y especias.','Forma albóndigas del tamaño de una nuez. Enharínalas y fríe en aceite hasta dorar. Reserva.','Para la salsa: sofríe cebolla 10 min, añade ajo y tomate. Cocina 20 min.','Sazona con sal, azúcar (para acidez) y albahaca.','Añade las albóndigas y cocina 15 min más a fuego suave.','Sirve con arroz blanco o pan crujiente para mojar.'],
+  tips:['No mezcles en exceso la carne: quedarán más tiernas','El reposo en la salsa es fundamental para el sabor','La salsa de tomate casera marca la diferencia total']},
+
+  {id:'rabo-toro',wiki:'Rabo_de_toro',e:'🫕',c:'carnes',t:'Rabo de toro cordobés',d:'El guiso andaluz más contundente. Meloso y espectacular.',time:'3 horas',p:'4 pers.',dif:'Media',dc:'media',cal:'560 kcal',rat:4.9,v:432,b:'new',
+  img:'img/carrilleras.svg',
+  intro:'El rabo de toro es el plato más representativo de Córdoba. Una cocción lenta de horas que transforma un corte humilde en un manjar absolutamente meloso. La salsa es pura concentración de sabor.',
+  ing:['1,5 kg de rabo de toro troceado','500 ml de vino tinto de la Tierra','2 cebollas, 2 zanahorias, 1 cabeza de ajo','2 tomates maduros, laurel, tomillo, clavo','Pimentón dulce y picante','Aceite de oliva, sal, pimienta, harina'],
+  s:['Salpimienta y enharina los trozos. Dóralos en aceite muy caliente. Reserva en cazuela grande.','Sofríe las verduras troceadas en el mismo aceite 15 min.','Añade el pimentón, los tomates y el vino. Deja evaporar el alcohol 5 min.','Vierte sobre la carne. Añade agua hasta cubrir. Añade las especias.','Cocina a fuego mínimo 2,5-3 horas. La carne debe despegarse del hueso.','Retira la carne. Tritura y cuela la salsa. Sirve bañando generosamente.'],
+  tips:['La paciencia es el ingrediente principal','Hecho el día antes está 10 veces mejor','Sirve con patatas fritas o puré para aprovechar la salsa']},
+
+  {id:'ternera-guisada',wiki:'Estofado_de_ternera',e:'🥩',c:'carnes',t:'Ternera guisada con patatas',d:'El guiso de siempre. Reconfortante y lleno de sabor.',time:'1,5 horas',p:'4 pers.',dif:'Fácil',dc:'facil',cal:'420 kcal',rat:4.7,v:789,
+  img:'img/carrilleras.svg',
+  intro:'La ternera guisada con patatas es el plato de cuchara por excelencia. Un guiso sencillo que llena el alma. La clave está en un buen sofrito y en no tener prisa.',
+  ing:['700 g de ternera para guisar (aguja o falda)','4 patatas medianas','1 cebolla, 2 dientes de ajo, 2 zanahorias','2 tomates maduros rallados','1 vaso de vino blanco','Laurel, tomillo, pimienta, pimentón','Aceite de oliva, sal'],
+  s:['Corta la ternera en dados de 3-4 cm. Dórala en aceite caliente con sal. Reserva.','Sofríe la cebolla, zanahoria y ajo 10 min en el mismo aceite.','Añade el tomate rallado y sofríe hasta que evapore. Agrega el pimentón.','Incorpora la carne, el vino y agua hasta cubrir. Añade las hierbas.','Cocina a fuego suave 1 hora tapado. Añade las patatas troceadas y cocina 20 min más.','Rectifica de sal y sirve caliente. El caldo debe quedar ligeramente espeso.'],
+  tips:['El dorado inicial de la carne aporta mucho sabor','Añade las patatas al final para que no se deshagan','Un chorrito de vinagre al servir le da un toque especial']},
+
+  // ── PESCADOS ──
+  {id:'merluza',wiki:'Merluza_en_salsa_verde',e:'🐟',c:'pescados',t:'Merluza en salsa verde',d:'El clásico vasco. Elegante, sabroso y muy sencillo.',time:'25 min',p:'4 pers.',dif:'Fácil',dc:'facil',cal:'220 kcal',rat:4.7,v:543,b:'new',
+  img:'img/merluza.svg',
+  intro:'La merluza en salsa verde es un clásico vasco que parece sofisticado pero es muy sencillo. La salsa se hace sola con el movimiento de la cazuela. Un plato de restaurante en casa en 25 minutos.',
+  ing:['4 lomos de merluza fresca (200g cada uno)','8 almejas frescas','4 dientes de ajo laminados','1 manojo de perejil fresco','200 ml de caldo de pescado','100 ml de vino blanco seco','50 ml de aceite de oliva virgen extra','Harina, sal'],
+  s:['Sala los lomos y enharínalos ligeramente por la piel. Sacude el exceso.','Sofríe el ajo laminado en aceite hasta que esté dorado. Retira y reserva.','Dora los lomos por la piel 2 min en el mismo aceite. Añade el vino y deja evaporar.','Añade el caldo caliente y las almejas. Mueve la cazuela en círculos para emulsionar.','Añade el ajo y el perejil muy picado. Sigue moviendo 3-4 min hasta que la salsa ligue.','Sirve inmediatamente en la cazuela.'],
+  tips:['El movimiento circular liga la salsa sin espesantes','No sobrecocines la merluza: jugosa es perfecta','Las almejas purgan 30 min en agua con sal antes de usar']},
+
+  {id:'bacalao',wiki:'Bacalao_al_pil_pil',e:'🐠',c:'pescados',t:'Bacalao al pil pil',d:'La técnica vasca más mágica. Una salsa que se hace sola.',time:'40 min',p:'4 pers.',dif:'Media',dc:'media',cal:'310 kcal',rat:4.8,v:456,
+  img:'img/bacalao.svg',
+  intro:'El bacalao al pil pil es la elaboración más singular de la cocina española. La salsa se crea mediante la emulsión de la gelatina del bacalao con el aceite. Pura magia culinaria sin ningún espesante artificial.',
+  ing:['4 lomos de bacalao desalado (200g c/u)','300 ml de aceite de oliva virgen extra suave','6 dientes de ajo laminados','2 guindillas secas (opcional)','Perejil para decorar'],
+  s:['Seca bien el bacalao con papel. Debe estar completamente sin humedad exterior.','Confita los ajos en el aceite a 60°C (sin que burbujee) hasta que estén dorados. Retira.','Coloca el bacalao con la piel hacia arriba en el aceite templado. Cocina a fuego mínimo 15-20 min.','Retira del fuego y mueve la cazuela en círculos suaves. La gelatina emulsiona con el aceite.','Alterna fuego mínimo y movimiento hasta que la salsa quede espesa y cremosa.','Añade los ajos por encima y sirve en la cazuela de barro.'],
+  tips:['Fuego muy suave: el aceite no debe burbujear','El movimiento circular es el secreto absoluto','El bacalao de calidad bien desalado es el 80% del éxito']},
+
+  {id:'gambas-ajillo',wiki:'Gambas_al_ajillo',e:'🦐',c:'tapas',t:'Gambas al ajillo',d:'La tapa más clásica de España. Listas en 5 minutos.',time:'10 min',p:'4 pers.',dif:'Fácil',dc:'facil',cal:'180 kcal',rat:4.8,v:2345,b:'top',pop:true,
+  img:'img/gambas-ajillo.svg',
+  intro:'Las gambas al ajillo son la tapa española por excelencia. En apariencia sencillas, tienen su técnica. El truco está en el aceite aromatizado y en no sobrecocinar las gambas.',
+  ing:['500 g de gambas o gambones frescos pelados','5 dientes de ajo laminados','2 guindillas secas','100 ml de aceite de oliva virgen extra','1 chorrito de vino blanco seco','Perejil fresco picado, sal'],
+  s:['En cazuela de barro, calienta el aceite a fuego suave. Añade los ajos y las guindillas.','Cuando los ajos empiecen a dorarse (no quemarse), sube el fuego a fuerte.','Añade las gambas con sal y saltea 1-2 min por lado. Deben quedar rosadas.','Añade el vino blanco, deja evaporar 30 segundos.','Espolvorea perejil picado y sirve inmediatamente en la cazuela de barro chisporroteando.'],
+  tips:['Las gambas se hacen en segundos: no las sobrecocines','La cazuela de barro guarda el calor y mola más para presentar','Pan de barra para mojar la salsa: obligatorio']},
+
+  {id:'dorada-sal',wiki:'Dorada_a_la_sal',e:'🐡',c:'pescados',t:'Dorada a la sal',d:'La técnica más elegante. Jugosa, sabrosa y sin excesos.',time:'45 min',p:'4 pers.',dif:'Fácil',dc:'facil',cal:'240 kcal',rat:4.7,v:432,
+  img:'img/merluza.svg',
+  intro:'La dorada a la sal es la forma más elegante y sencilla de cocinar pescado. La costra de sal actúa como un horno dentro del horno, cocinando el pescado en su propio vapor y manteniendo toda la jugosidad.',
+  ing:['2 doradas de 500g limpias','2 kg de sal gruesa','2 claras de huevo','Aceite de oliva, limón, perejil para acompañar','Tomillo o eneldo (opcional, dentro del pescado)'],
+  s:['Mezcla la sal gruesa con las claras de huevo (hace que la costra sea compacta). Añade un poco de agua si es necesario.','En bandeja para horno, pon una cama de 1 cm de sal. Coloca las doradas encima.','Cubre completamente con el resto de la sal. Presiona para que quede compacta. Las aletas deben estar cubiertas.','Hornea a 200°C durante 25 minutos (para doradas de 500g).','Rompe la costra con un golpe seco. Retira la sal y la piel. Sirve inmediatamente.','Acompaña con aceite de oliva virgen, limón y perejil picado.'],
+  tips:['El tiempo es exacto: no abras el horno antes','La piel se quedará pegada a la sal: es normal','Sirve inmediatamente: este plato no espera']},
+
+  {id:'pulpo-gallego',wiki:'Pulpo_a_la_gallega',e:'🐙',c:'pescados',t:'Pulpo a la gallega (Polbo á feira)',d:'El plato más famoso de Galicia. Con su pimentón y aceite.',time:'1 hora',p:'4 pers.',dif:'Media',dc:'media',cal:'190 kcal',rat:4.8,v:876,b:'fav',
+  img:'img/bacalao.svg',
+  intro:'El pulpo a la gallega es uno de los platos más icónicos de la gastronomía española. En Galicia lo comen en las ferias sobre un plato de madera. El secreto está en asustar el pulpo y en el punto de cocción exacto.',
+  ing:['1 pulpo de 1,5 kg (o pulpo cocido de buena calidad)','Patatas gallegas cocidas con piel','Pimentón dulce y picante de la Vera','Aceite de oliva virgen extra (mucho y bueno)','Sal en escamas, perejil (opcional)'],
+  s:['Si es fresco: congelarlo 48h y descongelar (ablanda los tentáculos). Lávalo bien.','Lleva a ebullición una olla grande con agua y laurel. Mete y saca el pulpo 3 veces (asustarlo) para que no se pele.','Sumerge definitivamente y cuece 45-50 min (para 1,5 kg). Pincha: debe entrar fácil pero con algo de resistencia.','Deja reposar en el agua de cocción 10 min fuera del fuego.','Corta en rodajas con tijeras sobre un plato de madera. Coloca las patatas cocidas alrededor.','Espolvorea sal, pimentón mezclado (mitad dulce, mitad picante) y riega generosamente con aceite de oliva.'],
+  tips:['Congelarlo es clave para ablandar las fibras','El pimentón de la Vera es imprescindible: no uses otro','El aceite de oliva debe ser de calidad y generoso']},
+
+  // ── SOPAS Y POTAJES ──
+  {id:'gazpacho',wiki:'Gazpacho',e:'🫙',c:'sopas',t:'Gazpacho andaluz casero',d:'Fresco, cremoso y listo en 15 minutos.',time:'15 min',p:'6 pers.',dif:'Fácil',dc:'facil',cal:'95 kcal',rat:4.7,v:1823,b:'new',pop:true,
+  img:'img/gazpacho.svg',
+  intro:'El gazpacho es la receta de verano por excelencia. El secreto está en usar tomates muy maduros y en emulsionar bien con el aceite. Un gazpacho bien hecho tiene textura cremosa y aterciopelada, nunca aguada.',
+  ing:['1 kg de tomates muy maduros de temporada','1 pimiento verde italiano','1 pepino mediano pelado','1 diente de ajo sin germen','50 ml de aceite de oliva virgen extra','20 ml de vinagre de Jerez','Sal · Agua fría (opcional)'],
+  s:['Lava y trocea todos los vegetales. No hace falta pelar los tomates con batidora potente.','Tritura todo a máxima potencia 2-3 minutos hasta obtener crema fina.','Con el motor en marcha, añade el aceite en hilo para emulsionar.','Añade el vinagre y la sal. Prueba y ajusta.','Cuela por colador fino. Refrigera mínimo 2 horas.','Sirve muy frío con guarnición: daditos de pepino, pimiento, pan frito y huevo duro.'],
+  tips:['La calidad del tomate lo es todo: en verano, de mercado','El vinagre de Jerez marca la diferencia','Un trozo de pan del día anterior da más cuerpo']},
+
+  {id:'salmorejo',wiki:'Salmorejo',e:'🍅',c:'sopas',t:'Salmorejo cordobés',d:'Más espeso y cremoso que el gazpacho. Un manjar del sur.',time:'20 min',p:'6 pers.',dif:'Fácil',dc:'facil',cal:'180 kcal',rat:4.7,v:892,
+  img:'img/salmorejo.svg',
+  intro:'El salmorejo es el primo cordobés del gazpacho, más espeso gracias al pan. Se sirve frío y se corona con huevo duro y jamón serrano. Una delicia que conquista a quien lo prueba.',
+  ing:['1 kg de tomates muy maduros tipo pera','200 g de pan del día anterior (miga)','1 diente de ajo sin germen','100 ml de aceite de oliva virgen extra suave','20 ml de vinagre de Jerez','Sal · Huevo duro y jamón serrano para servir'],
+  s:['Remoja el pan en agua fría 10 min.','Escurre el pan sin exprimir demasiado. Pon en batidora con los tomates y el ajo.','Tritura 3 minutos a máxima velocidad.','Con la batidora en marcha, añade el aceite en hilo fino.','Añade el vinagre y sal. Cuela por colador fino.','Refrigera 2 horas. Sirve con huevo duro picado y jamón en tiras.'],
+  tips:['El pan no muy húmedo: escúrrelo bien','El aceite suave funciona mejor que uno muy intenso','Debe quedar con textura de crema espesa']},
+
+  {id:'fabada',wiki:'Fabada_asturiana',e:'🫘',c:'sopas',t:'Fabada asturiana',d:'El plato más representativo de Asturias.',time:'2,5 horas',p:'6 pers.',dif:'Media',dc:'media',cal:'620 kcal',rat:4.8,v:734,
+  img:'img/fabada.svg',
+  intro:'La fabada es el plato más representativo de Asturias. La calidad de las fabes es fundamental: grandes, cremosas, sin piel dura. Con un buen compango (chorizo, morcilla y tocino), el resultado es espectacular.',
+  ing:['500 g de fabes asturianas (remojadas 12h)','200 g de chorizo asturiano','200 g de morcilla asturiana','150 g de tocino salado o lacón','1 cebolla, 2 dientes de ajo, laurel','Pimentón dulce, azafrán, sal'],
+  s:['Escurre las fabes y ponlas en olla grande con agua fría abundante.','Añade el chorizo, morcilla y tocino enteros. Agrega cebolla, ajo y laurel.','Lleva a ebullición suave. Desespuma bien. Añade pimentón y azafrán.','Cocina a fuego muy suave 2-2,5 horas.','El "asustado": añade un vaso de agua fría 3 veces durante la cocción para que no se rompan las fabes.','Rectifica de sal. Retira las carnes, trocéalas y vuelve a añadir.'],
+  tips:['Las fabes deben quedar enteras, no deshechas','El "asustado" con agua fría es el truco principal','Las fabes de lata no funcionan: usa siempre las secas']},
+
+  {id:'lentejas',wiki:'Lentejas_estofadas',e:'🫘',c:'sopas',t:'Lentejas estofadas con chorizo',d:'Las lentejas de toda la vida. Contundentes y nutritivas.',time:'50 min',p:'6 pers.',dif:'Fácil',dc:'facil',cal:'380 kcal',rat:4.7,v:1567,b:'fav',
+  img:'img/lentejas.svg',
+  intro:'Las lentejas caseras son uno de los platos más completos y económicos. No necesitan remojo y en menos de una hora tienes un plato contundente que reconforta el cuerpo y el alma.',
+  ing:['400 g de lentejas pardinas (sin remojo)','150 g de chorizo en rodajas','100 g de panceta o tocino','1 cebolla, 2 zanahorias, 2 dientes de ajo','2 tomates o 1 lata de triturado','1 pimiento verde, laurel','Pimentón, comino, aceite de oliva, sal'],
+  s:['Sofríe cebolla, zanahoria y pimiento picados en aceite 10 min. Añade el ajo 2 min.','Añade chorizo y panceta. Sofríe 3 min hasta que suelten su grasa.','Incorpora el tomate y sofríe 5 min. Añade el pimentón y el comino.','Añade las lentejas (enjuagadas) con agua fría (doble volumen). Añade el laurel.','Cocina 30-35 min a fuego medio hasta que estén tiernas.','Rectifica de sal. Sirve caldoso con un chorrito de aceite crudo.'],
+  tips:['Las lentejas pardinas no necesitan remojo','Añade siempre agua CALIENTE si se quedan secas','Un chorro de vinagre al servir las hace más digestivas']},
+
+  {id:'caldo-gallego',wiki:'Caldo_gallego',e:'🥬',c:'sopas',t:'Caldo gallego',d:'El reconfortante plato de invierno de Galicia.',time:'2 horas',p:'6 pers.',dif:'Fácil',dc:'facil',cal:'280 kcal',rat:4.7,v:456,
+  img:'img/fabada.svg',
+  intro:'El caldo gallego es el plato de cuchara más reconfortante de Galicia. Grelos o berzas, alubias y lacón: una combinación perfecta para los días fríos.',
+  ing:['200 g de alubias blancas remojadas','300 g de grelos o berza','200 g de lacón o costilla salada desalada','200 g de chorizos gallegos','3 patatas medianas','Aceite de oliva, sal'],
+  s:['Pon a cocer el lacón o costilla desalada con las alubias en agua fría.','Lleva a ebullición lenta, desespuma y cocina 1 hora a fuego suave.','Añade las patatas troceadas y el chorizo. Cocina 20 min.','Añade los grelos o la berza troceada. Cocina 20 min más.','Rectifica de sal. Debe quedar caldoso.','Sirve muy caliente con pan de centeno.'],
+  tips:['Desala bien el lacón la noche anterior','Los grelos son más amargos que la berza: ambos válidos','El caldo de un día para otro está mejor']},
+
+  // ── VERDURAS ──
+  {id:'pisto',wiki:'Pisto',e:'🥦',c:'verduras',t:'Pisto manchego',d:'El guiso de verduras más famoso de España.',time:'45 min',p:'4 pers.',dif:'Fácil',dc:'facil',cal:'160 kcal',rat:4.6,v:678,b:'new',
+  img:'img/pisto.svg',
+  intro:'El pisto manchego es la ratatouille española. Un guiso de verduras de temporada que se puede servir como entrante, acompañamiento o plato principal con un huevo frito encima.',
+  ing:['2 calabacines medianos','2 pimientos rojos','2 pimientos verdes','3 tomates maduros pelados','1 cebolla grande','3 dientes de ajo','100 ml de aceite de oliva virgen extra','Sal, azúcar, pimienta negra'],
+  s:['Corta todas las verduras en dados de 1 cm.','Sofríe la cebolla en aceite abundante 10 min. Añade los pimientos 10 min más.','Añade el ajo 2 min. Incorpora el tomate y sofríe 15 min.','Añade el calabacín y cocina 15 min. Sazona con sal, azúcar y pimienta.','El pisto debe quedar con poco líquido y verduras muy tiernas y concentradas.'],
+  tips:['Cada verdura tiene su tiempo: no las añadas todas a la vez','El azúcar corrige la acidez del tomate','Un huevo frito encima lo convierte en plato principal']},
+
+  {id:'menestra',wiki:'Menestra_de_verduras',e:'🥕',c:'verduras',t:'Menestra de verduras a la española',d:'Verduras de temporada en su punto. Elegante y nutritiva.',time:'45 min',p:'4 pers.',dif:'Media',dc:'media',cal:'140 kcal',rat:4.6,v:345,
+  img:'img/pisto.svg',
+  intro:'La menestra es el plato de verduras más elegante de la cocina española. La clave está en cocinar cada verdura por separado al dente y unirlas después en un sofrito sabroso.',
+  ing:['200 g de alcachofas (o congeladas)','200 g de judías verdes','200 g de guisantes frescos o congelados','2 zanahorias, 2 patatas pequeñas','100 g de jamón serrano en taquitos','2 dientes de ajo, 1 cebolleta','Aceite de oliva, sal, pimienta','1 vaso de caldo de verduras'],
+  s:['Cuece cada verdura por separado en agua con sal hasta que estén al dente. Reserva.','Sofríe la cebolleta y el ajo picados en aceite 8 min. Añade el jamón 3 min.','Añade el caldo y lleva a ebullición suave.','Incorpora todas las verduras y cocina 5 min para que se integren.','Rectifica de sal y sirve caliente.'],
+  tips:['Cocer cada verdura por separado es la clave','Al dente es el punto correcto: no las sobrecocines','El jamón da todo el sabor al sofrito']},
+
+  {id:'champiñones',wiki:'Champiñones_al_ajillo',e:'🍄',c:'tapas',t:'Champiñones al ajillo',d:'Listo en 15 minutos. La tapa perfecta de cualquier bar.',time:'15 min',p:'4 pers.',dif:'Fácil',dc:'facil',cal:'120 kcal',rat:4.6,v:934,
+  img:'img/pimientos-padron.svg',
+  intro:'Los champiñones al ajillo son la tapa perfecta: rápida, económica y deliciosa. El truco está en no moverlos al principio para que se doren bien en lugar de soltar agua.',
+  ing:['500 g de champiñones frescos','4 dientes de ajo laminados','1 guindilla seca (opcional)','Perejil fresco picado','50 ml de vino blanco','Aceite de oliva virgen extra, sal'],
+  s:['Limpia los champiñones con papel húmedo. Córtalos en cuartos.','Calienta aceite a fuego fuerte en sartén grande. Añade los champiñones en una sola capa.','No los muevas 3-4 min hasta que estén dorados.','Añade ajo y guindilla. Sofríe 2 min más.','Añade el vino y deja evaporar 2 min.','Sal, perejil picado y sirve inmediatamente.'],
+  tips:['No moverlos al principio: ese es el secreto del dorado','La sartén grande es importante para que no se amontonen','Sirve inmediatamente: pierden textura si esperan']},
+
+  {id:'espinacas-garbanzos',wiki:'Espinacas_con_garbanzos',e:'🥬',c:'verduras',t:'Espinacas con garbanzos',d:'La joya de la cocina sevillana. Poderoso y nutritivo.',time:'30 min',p:'4 pers.',dif:'Fácil',dc:'facil',cal:'210 kcal',rat:4.7,v:654,b:'new',
+  img:'img/pisto.svg',
+  intro:'Las espinacas con garbanzos son el plato de potaje más sabroso de la cocina sevillana. El sofrito con comino y el toque de vinagre al final lo hacen absolutamente especial.',
+  ing:['500 g de espinacas frescas','1 bote de garbanzos cocidos (400g)','3 dientes de ajo, 1 rebanada de pan','1 cucharadita de comino molido','Pimentón dulce, 1 cucharada de vinagre de Jerez','Aceite de oliva, sal'],
+  s:['Fríe el pan y los ajos en aceite hasta que estén dorados. Reserva.','En el mismo aceite sofríe el pimentón 30 segundos. Añade las espinacas y cuece hasta que se rehoguen.','Maja en mortero el pan frito, los ajos y el comino hasta obtener una pasta.','Añade los garbanzos escurridos a las espinacas. Incorpora el majado.','Añade un poco de agua, el vinagre y la sal. Cocina 5 min más.','Debe quedar con poco caldo pero no seco.'],
+  tips:['El majado de pan y ajo es el secreto del sabor','El vinagre de Jerez al final es imprescindible','Los garbanzos de bote bien escurridos funcionan perfectamente']},
+
+  // ── POSTRES ──
+  {id:'flan',wiki:'Flan_(postre)',e:'🍮',c:'postres',t:'Flan casero con caramelo',d:'El postre más clásico de España. Cremoso y perfecto.',time:'1 hora + reposo',p:'8 pers.',dif:'Fácil',dc:'facil',cal:'210 kcal',rat:4.9,v:1456,b:'top',pop:true,
+  img:'img/flan.svg',
   intro:'El flan casero es uno de esos postres que parecen difíciles pero son muy sencillos. El resultado es infinitamente mejor que el de sobre. El truco está en el baño maría y en el tiempo de reposo.',
-  ingredients:['6 huevos frescos L','500 ml de leche entera (mejor entera para más cremosidad)','200 ml de nata para cocinar','150 g de azúcar','1 cucharadita de extracto de vainilla puro','Para el caramelo: 150 g de azúcar + 3 cucharadas de agua'],
-  steps:['Caramelo: en cazo pequeño disuelve el azúcar con el agua a fuego medio SIN remover. Cuando tome color ámbar dorado, vierte inmediatamente en el molde. ¡Cuidado, quema mucho!','Precalienta el horno a 170°C. Prepara una bandeja con agua caliente para el baño maría.','Bate los huevos con el azúcar sin montar (no queremos burbujas). Añade la leche, la nata y la vainilla. Mezcla suavemente.','Cuela la mezcla por un colador fino para eliminar cualquier grumo o telilla de huevo.','Vierte sobre el caramelo del molde. Coloca en la bandeja de baño maría (el agua debe llegar a la mitad del molde).','Hornea 50-60 minutos. Comprueba con un palillo: debe salir limpio pero el centro puede temblar ligeramente.','Deja enfriar completamente y refrigera mínimo 4 horas, mejor toda la noche. Desmolda sobre un plato hondo.'],
-  tips:['El baño maría es imprescindible para la textura cremosa','Más reposo = flan más perfecto. Hazlo el día antes','Si el caramelo se endurece al verterlo, no pasa nada: se disolverá al hornear']},
+  ing:['6 huevos frescos L','500 ml de leche entera','200 ml de nata para cocinar','150 g de azúcar','1 cucharadita de vainilla pura','Para el caramelo: 150 g azúcar + 3 cucharadas agua'],
+  s:['Caramelo: disuelve el azúcar con el agua a fuego medio SIN remover. Cuando sea ámbar dorado, vierte en el molde. Cuidado: quema mucho.','Precalienta el horno a 170°C. Prepara bandeja con agua caliente.','Bate los huevos con el azúcar sin hacer espuma. Añade leche, nata y vainilla.','Cuela por colador fino y vierte sobre el caramelo.','Hornea al baño maría 50-60 min. Comprueba con palillo.','Enfría completamente y refrigera mínimo 4 horas. Desmolda sobre plato hondo.'],
+  tips:['El baño maría es imprescindible para la textura cremosa','Más reposo = flan más perfecto: hazlo el día antes','Si el caramelo se endurece al verter, no pasa: se disuelve al hornear']},
 
-  {id:'croquetas',emoji:'🍘',cat:'basicos',title:'Croquetas de jamón caseras',desc:'Crujientes por fuera, cremosas por dentro. El bocado perfecto.',time:'45 min + reposo',persons:'30 ud.',diff:'Media',diffClass:'diff-media',cal:'85 kcal',rating:4.8,votes:2105,badge:'top',popular:true,
+  {id:'tarta-queso',wiki:'Tarta_de_queso',e:'🍰',c:'postres',t:'Tarta de queso vasca "La Viña"',d:'La tarta que conquistó el mundo. Sin base, sin baño maría.',time:'1 hora',p:'8 pers.',dif:'Fácil',dc:'facil',cal:'380 kcal',rat:5.0,v:3241,b:'top',pop:true,
+  img:'img/tarta-queso.svg',
+  intro:'La tarta de queso de La Viña es la más famosa del mundo. Quemada por fuera y líquida por dentro. Tres ingredientes básicos y un resultado extraordinario que ha conquistado las redes sociales.',
+  ing:['600 g de queso crema (Philadelphia) a temperatura ambiente','200 g de azúcar','4 huevos L a temperatura ambiente','300 ml de nata para montar','20 g de harina (solo 20g)'],
+  s:['Precalienta el horno a 210°C con ventilador. Forra molde de 22-24 cm con papel de horno arrugado (que sobresalga).','Bate el queso crema con el azúcar hasta que esté completamente liso.','Añade los huevos uno a uno batiendo entre cada uno.','Incorpora la nata y la harina tamizada. Mezcla hasta homogéneo.','Hornea 40-50 min. Debe quedar muy tostada por fuera y temblorosa en el centro.','Enfría 1 hora en el molde. Refrigera 4 horas mínimo.'],
+  tips:['Todos los ingredientes a temperatura ambiente: obligatorio','Que tiemble en el centro es correcto: se cuajará al enfriar','Cuanto más tostada, más auténtica. No temas el color oscuro']},
+
+  {id:'creme-catalana',wiki:'Crema_catalana',e:'🍛',c:'postres',t:'Crema catalana',d:'El postre catalán más famoso. Con su quemado de azúcar.',time:'30 min + reposo',p:'6 pers.',dif:'Media',dc:'media',cal:'260 kcal',rat:4.8,v:876,b:'new',
+  img:'img/creme-catalana.svg',
+  intro:'La crema catalana es anterior a la crème brûlée francesa. La diferencia está en el almidón en lugar de nata y el sabor a limón y canela. El quemado con soplete es el momento más satisfactorio.',
+  ing:['500 ml de leche entera','6 yemas de huevo','120 g de azúcar + azúcar para quemar','25 g de maicena','1 corteza de limón','1 rama de canela'],
+  s:['Infusiona la leche con el limón y la canela 10 min a fuego suave. Cuela.','Bate las yemas con el azúcar hasta que blanqueen. Añade la maicena.','Añade la leche caliente poco a poco removiendo constantemente.','Vuelve al cazo a fuego muy suave, sin dejar de remover, hasta que espese (5-8 min).','Vierte en cazuelitas y refrigera mínimo 2 horas.','Espolvorea azúcar y quema con soplete. Come inmediatamente.'],
+  tips:['Remueve sin parar para evitar grumos','El almidón es lo que la diferencia del crème brûlée','Quema el azúcar justo antes de servir: si no, se humedece']},
+
+  {id:'torrijas',wiki:'Torrija',e:'🍞',c:'postres',t:'Torrijas de Semana Santa',d:'El postre más español. Crujientes por fuera y jugosas por dentro.',time:'30 min',p:'6 pers.',dif:'Fácil',dc:'facil',cal:'290 kcal',rat:4.9,v:1987,b:'fav',
+  img:'img/pan-tomate.svg',
+  intro:'Las torrijas son el postre de Semana Santa por excelencia, aunque están tan buenas que merecen comerse todo el año. El pan del día anterior empapado en leche especiada, rebozado y frito. Pura felicidad.',
+  ing:['1 barra de pan del día anterior (tipo baguette)','500 ml de leche entera','2 huevos','Canela en rama, corteza de limón, azúcar vainillado','Aceite de oliva suave para freír','Canela en polvo y azúcar para rebozar'],
+  s:['Calienta la leche con la canela, el limón y 2 cucharadas de azúcar. No debe hervir. Deja enfriar.','Corta el pan en rebanadas de 2-3 cm. Sumérgelas en la leche 2-3 min por lado hasta que estén empapadas pero no deshechas.','Bate los huevos. Pasa cada rebanada por el huevo batido.','Fríe en aceite abundante a 170°C hasta que estén doradas por ambos lados.','Escurre en papel de cocina. Reboza en mezcla de azúcar y canela.','Sirve calientes o frías: ambas versiones están exquisitas.'],
+  tips:['El pan debe quedar empapado pero manteniendo la forma','El aceite a temperatura constante es clave para el rebozado','Frías con miel están también increíbles']},
+
+  {id:'brazo-gitano',wiki:'Brazo_de_gitano',e:'🎂',c:'postres',t:'Brazo de gitano de nata y fresas',d:'El postre de toda reunión familiar. Esponjoso y vistoso.',time:'45 min',p:'10 pers.',dif:'Media',dc:'media',cal:'320 kcal',rat:4.7,v:654,
+  img:'img/tarta-queso.svg',
+  intro:'El brazo de gitano es uno de los postres más vistosos y queridos de España. Un bizcocho enrollado que esconde su relleno hasta que lo cortas. Perfecto para sorprender en celebraciones.',
+  ing:['4 huevos','120 g de azúcar','120 g de harina','1 cucharadita de levadura','Para el relleno: 250 ml de nata para montar','2 cucharadas de azúcar glas','250 g de fresas o frutos rojos'],
+  s:['Bate los huevos con el azúcar a velocidad máxima 8 min hasta que tripliquen el volumen y queden blancos y esponjosos.','Añade la harina tamizada con la levadura en dos veces, mezclando con movimientos envolventes.','Extiende en bandeja forrada con papel (30x40 cm). Hornea a 180°C 12 min hasta que esté dorado.','Nada más salir del horno, vuelca sobre un paño húmedo con azúcar. Enrolla con el paño y deja enfriar 20 min.','Monta la nata con el azúcar glas. Desenrolla el bizcocho, rellena con la nata y las fresas.','Enrolla de nuevo con cuidado y refrigera 1 hora antes de servir.'],
+  tips:['El enrollado en caliente es fundamental para que no se rompa','No abras el horno antes de los 12 min','Refrigera bien antes de cortar para que conserve la forma']},
+
+  {id:'natillas',wiki:'Natillas',e:'🍮',c:'postres',t:'Natillas caseras de vainilla',d:'Cremosas, suaves y con su galletita. Un clásico.',time:'25 min',p:'6 pers.',dif:'Fácil',dc:'facil',cal:'180 kcal',rat:4.7,v:876,
+  img:'img/arroz-leche.svg',
+  intro:'Las natillas caseras son el postre de domingo de siempre. Cremosas, con ese sabor a vainilla y leche que reconforta. Con la galletita maría encima son perfectas.',
+  ing:['600 ml de leche entera','4 yemas de huevo','100 g de azúcar','25 g de maicena','1 cucharadita de vainilla','Canela en polvo y galletas maría'],
+  s:['Calienta 500 ml de leche con la vainilla a fuego suave. Reserva 100 ml fría.','Bate las yemas con el azúcar hasta que blanqueen. Disuelve la maicena en la leche fría.','Mezcla ambas preparaciones y vierte sobre la leche caliente removiendo constantemente.','Cocina a fuego suave sin dejar de remover hasta que espese (5-8 min).','Vierte en cuencos. Coloca una galleta maría en cada uno.','Espolvorea canela y refrigera 2 horas.'],
+  tips:['Remueve siempre para evitar grumos','Si quedan grumos, pasa por la batidora','Más espesas = más frías: ajusta la maicena a tu gusto']},
+
+  // ── BÁSICOS ──
+  {id:'tortilla',wiki:'Tortilla_de_patatas',e:'🍳',c:'basicos',t:'Tortilla de patatas perfecta',d:'El icono de la cocina española. Jugosa por dentro, dorada por fuera.',time:'35 min',p:'4 pers.',dif:'Fácil',dc:'facil',cal:'280 kcal',rat:4.9,v:1247,b:'top',pop:true,
+  img:'img/tortilla.svg',
+  intro:'La tortilla de patatas es el plato más icónico de España. La diferencia entre una buena tortilla y una mediocre está en tres cosas: calidad del aceite, paciencia en la cocción y el punto de jugosidad.',
+  ing:['5 huevos grandes a temperatura ambiente','500 g de patatas medianas (Monalisa o Kennebec)','1 cebolla mediana (muy recomendada)','Aceite de oliva virgen extra (abundante)','Sal fina al gusto'],
+  s:['Pela y corta las patatas en láminas de 2-3 mm. Corta la cebolla en juliana fina.','Calienta aceite abundante a fuego medio-bajo. Añade patatas y cebolla con sal.','Fríe despacio 20-25 min removiendo con cuidado. Deben quedar tiernas, no crujientes.','Bate los huevos con sal. Escurre bien las patatas y mézclalas con el huevo. Reposa 5 min.','En sartén antiadherente de 22-24 cm con poco aceite caliente, vierte la mezcla. Cuaja 3-4 min a fuego medio.','El volteo: tapa con plato y gira con movimiento rápido. Desliza de vuelta 2-3 min. Reposa 5 min.'],
+  tips:['Usa siempre huevos de corral: el color y sabor son incomparables','El fuego bajo es el verdadero secreto, no tengas prisa','Mínimo 5 huevos para una tortilla de buen tamaño']},
+
+  {id:'croquetas',wiki:'Croqueta',e:'🍘',c:'basicos',t:'Croquetas de jamón caseras',d:'Crujientes por fuera, cremosas por dentro.',time:'45 min + reposo',p:'30 ud.',dif:'Media',dc:'media',cal:'85 kcal',rat:4.8,v:2105,b:'top',pop:true,
+  img:'img/croquetas.svg',
   intro:'La croqueta perfecta tiene una bechamel muy cremosa y un rebozado fino y crujiente. El secreto está en la proporción de harina y leche, y en dejar enfriar bien antes de rebozar.',
-  ingredients:['150 g de jamón serrano picado fino','100 g de mantequilla','120 g de harina de trigo','800 ml de leche entera caliente','1/2 cebolla muy picada','Nuez moscada, sal, pimienta blanca','2 huevos, pan rallado fino, aceite para freír'],
-  steps:['Derrite la mantequilla a fuego medio. Sofríe la cebolla 8 min hasta que esté transparente y sin color.','Añade el jamón y sofríe 2 min. Incorpora la harina de golpe y tuéstala removiendo 3 min (debe oler a galleta).','Añade la leche caliente poco a poco sin dejar de remover con varillas. Paciencia: la clave está aquí.','Sigue removiendo a fuego medio-bajo 15-20 min hasta que la bechamel sea muy espesa y se despegue de las paredes.','Vierte en bandeja, tapa con film a piel y deja enfriar completamente. Refrigera mínimo 2 horas (mejor toda la noche).','Forma croquetas con dos cucharas o con las manos húmedas. Pasa por huevo batido y pan rallado.','Fríe en aceite abundante a 180°C hasta que estén doradas. Escurre en papel y sirve inmediatamente.'],
-  tips:['La bechamel más espesa, mejores croquetas','Congélalas una vez rebozadas: así siempre tienes en casa','El pan rallado fino da mejor resultado que el grueso']},
+  ing:['150 g de jamón serrano picado fino','100 g de mantequilla','120 g de harina de trigo','800 ml de leche entera caliente','1/2 cebolla muy picada','Nuez moscada, sal, pimienta blanca','2 huevos, pan rallado fino, aceite para freír'],
+  s:['Derrite la mantequilla. Sofríe la cebolla 8 min hasta que esté transparente.','Añade el jamón y sofríe 2 min. Incorpora la harina de golpe y tuéstala 3 min.','Añade la leche caliente poco a poco sin dejar de remover con varillas.','Remueve a fuego medio-bajo 15-20 min hasta que la bechamel sea muy espesa.','Vierte en bandeja, tapa con film a piel y refrigera mínimo 2 horas.','Forma croquetas, pasa por huevo y pan rallado. Fríe a 180°C hasta dorar.'],
+  tips:['La bechamel más espesa, mejores croquetas','Congélalas una vez rebozadas: así siempre tienes en casa','El pan rallado fino da mejor resultado']},
 
-  {id:'salmorejo',emoji:'🍅',cat:'sopas',title:'Salmorejo cordobés',desc:'Más espeso y cremoso que el gazpacho. Un manjar del sur.',time:'20 min',persons:'6 pers.',diff:'Fácil',diffClass:'diff-facil',cal:'180 kcal',rating:4.7,votes:892,
-  intro:'El salmorejo es el primo cordobés del gazpacho, pero más espeso y contundente gracias al pan. Se sirve como primer plato y se corona con huevo duro y jamón. Una delicia.',
-  ingredients:['1 kg de tomates muy maduros tipo pera','200 g de pan del día anterior (miga blanca)','1 diente de ajo sin germen','100 ml de aceite de oliva virgen extra suave','20 ml de vinagre de Jerez','Sal al gusto','Para servir: huevo duro picado, jamón serrano en tiras'],
-  steps:['Remoja el pan en agua fría 10 minutos para que ablande.','Escurre el pan (sin exprimir demasiado) y ponlo en la batidora con los tomates troceados y el ajo.','Tritura a máxima velocidad 3 minutos hasta obtener una crema fina.','Con la batidora en marcha, añade el aceite en hilo fino para emulsionar. Verás cómo cambia la textura.','Añade el vinagre y la sal. Prueba y ajusta. Cuela por colador fino.','Refrigera mínimo 2 horas. Sirve en cuencos con huevo duro picado y tiras de jamón por encima.'],
-  tips:['El pan no debe estar muy húmedo: escúrrelo bien','El aceite de oliva suave funciona mejor que uno muy intenso','Debe quedar con textura de crema, no líquido: ajusta con pan o agua']},
+  {id:'ensaladilla',wiki:'Ensaladilla_rusa',e:'🥗',c:'basicos',t:'Ensaladilla rusa casera',d:'La tapa más popular de España. Cremosa y sabrosa.',time:'30 min + reposo',p:'8 pers.',dif:'Fácil',dc:'facil',cal:'190 kcal',rat:4.7,v:1432,b:'fav',
+  img:'img/ensaladilla.svg',
+  intro:'La ensaladilla rusa española no tiene nada que ver con la original rusa. La nuestra va con bonito, aceitunas y mayonesa generosa. Es la tapa más pedida en los bares de toda España.',
+  ing:['4 patatas medianas cocidas','3 zanahorias cocidas','4 huevos cocidos','1 lata de bonito en aceite (160g)','100 g de guisantes cocidos','80 g de aceitunas verdes sin hueso','150 g de mayonesa (mejor casera)','Sal, 2 cucharadas de vinagre'],
+  s:['Cuece patatas y zanahorias con piel en agua con sal 20 min. Deja enfriar completamente.','Pela y corta en dados pequeños. Pica los huevos cocidos reservando uno para decorar.','Escurre y desmiga el bonito. Pica las aceitunas en rodajas.','Mezcla todo con la mayonesa. Sazona con sal y vinagre.','Refrigera 2 horas mínimo. Decora con mayonesa, aceitunas y huevo rallado.'],
+  tips:['Las patatas deben estar completamente frías antes de mezclar','La mayonesa casera marca la diferencia total','Hazla el día antes: con reposo está mucho mejor']},
 
-  {id:'fabada',emoji:'🫘',cat:'sopas',title:'Fabada asturiana',desc:'El contundente plato de Asturias. Reconfortante y sabroso.',time:'2,5 horas',persons:'6 pers.',diff:'Media',diffClass:'diff-media',cal:'620 kcal',rating:4.8,votes:734,
-  intro:'La fabada es el plato más representativo de Asturias. La calidad de las fabes (alubias grandes y cremosas) es fundamental. Con un buen compango (chorizo, morcilla y tocino), el resultado es espectacular.',
-  ingredients:['500 g de fabes asturianas de calidad (remojadas 12h)','200 g de chorizo asturiano','200 g de morcilla asturiana','150 g de tocino salado o lacón','1 cebolla, 2 dientes de ajo, 1 hoja de laurel','Pimentón dulce, azafrán, sal','Agua fría abundante'],
-  steps:['Escurre las fabes del remojo y ponlas en olla grande con agua fría abundante.','Añade el chorizo, la morcilla y el tocino enteros. Agrega la cebolla entera, el ajo y el laurel.','Lleva a ebullición a fuego suave. Desespuma bien. Añade el pimentón y el azafrán.','Cocina a fuego muy suave 2-2,5 horas. Las fabes deben quedar enteras pero muy tiernas.','Técnica del "asustado": añade un vaso de agua fría 3 veces durante la cocción para que no se rompan las fabes.','Rectifica de sal al final. Retira las carnes, trocéalas y vuelve a añadir. Sirve muy caliente.'],
-  tips:['Las fabes deben quedar enteras, no deshechas','El "asustado" con agua fría es el truco para que no se rompan','Las fabes de lata no funcionan: usa siempre las secas remojadas']},
+  {id:'mayonesa',wiki:'Mayonesa',e:'🥣',c:'basicos',t:'Mayonesa casera infalible',d:'La salsa imprescindible. Lista en 2 minutos con batidora.',time:'5 min',p:'1 tarro',dif:'Fácil',dc:'facil',cal:'90 kcal',rat:4.8,v:1234,b:'new',
+  img:'img/salmorejo.svg',
+  intro:'La mayonesa casera es infinitamente mejor que la industrial. El truco está en que todos los ingredientes estén a temperatura ambiente y en la técnica de batido. Con la batidora de mano es infalible.',
+  ing:['1 huevo entero a temperatura ambiente','200 ml de aceite de oliva suave o girasol','1 cucharadita de mostaza de Dijon','1 cucharada de zumo de limón','Sal y pimienta blanca'],
+  s:['Pon todos los ingredientes en el vaso de la batidora: primero el huevo, luego el aceite, la mostaza, el limón y sal.','Introduce el brazo de la batidora hasta el fondo del vaso y pon al máximo sin mover.','Cuando empiece a emulsionar (ves cómo sube la crema blanca) empieza a levantar el brazo muy lentamente.','En 30 segundos tienes una mayonesa perfecta.','Rectifica de sal y limón a tu gusto.','Conserva en nevera máximo 3 días.'],
+  tips:['El huevo y el aceite a temperatura ambiente: fundamental','No muevas el brazo hasta que empiece a emulsionar','Si se corta: pon un huevo nuevo y añade la mayonesa cortada como si fuera aceite']},
 
-  {id:'pollo-asado',emoji:'🍗',cat:'carnes',title:'Pollo asado al limón y ajo',desc:'Jugoso por dentro, piel crujiente. El asado perfecto de domingo.',time:'1,5 horas',persons:'4 pers.',diff:'Fácil',diffClass:'diff-facil',cal:'380 kcal',rating:4.8,votes:1678,badge:'fav',
-  intro:'Un buen pollo asado parece simple pero esconde muchos trucos. La clave es el marinado, la temperatura del horno y regar el pollo durante la cocción. El resultado: piel crujiente y carne jugosísima.',
-  ingredients:['1 pollo entero de 1,5 kg a temperatura ambiente','1 limón entero + zumo de otro','8 dientes de ajo (6 aplastados con piel, 2 picados)','4 ramas de romero fresco','4 ramas de tomillo fresco','50 ml de aceite de oliva virgen extra','Sal gruesa, pimienta negra recién molida','500 g de patatas para asar (opcional)'],
-  steps:['Seca bien el pollo por dentro y por fuera con papel de cocina. La humedad es el enemigo de la piel crujiente.','Mezcla aceite, ajo picado, zumo de limón, sal y pimienta. Embadurna el pollo por dentro y por fuera. Mete el limón entero y las hierbas dentro.','Deja marinar 1 hora a temperatura ambiente o toda la noche en nevera.','Precalienta el horno a 200°C. Coloca el pollo en bandeja con los ajos aplastados alrededor.','Hornea 30 min. Da la vuelta y hornea 30 min más. Riega con los jugos cada 20 minutos.','Los últimos 10 min sube a 220°C para que la piel quede dorada y crujiente.','Deja reposar 10 minutos antes de trinchar.'],
-  tips:['El pollo a temperatura ambiente antes de hornear es fundamental','Riegar durante la cocción mantiene la carne jugosa','El reposo tras el horneado redistribuye los jugos: no lo saltes']},
+  {id:'sofrito',wiki:'Sofrito',e:'🍅',c:'basicos',t:'Sofrito perfecto base de todo',d:'La base de toda la cocina española. El secreto de los buenos guisos.',time:'30 min',p:'4-6 personas',dif:'Fácil',dc:'facil',cal:'80 kcal',rat:4.7,v:876,
+  img:'img/pisto.svg',
+  intro:'El sofrito es la base de prácticamente toda la cocina española y mediterránea. Aprender a hacerlo bien multiplica por diez el sabor de cualquier guiso, arroz o pasta. Paciencia y fuego bajo son los ingredientes clave.',
+  ing:['2 cebollas medianas','4 tomates maduros rallados','3 dientes de ajo','1 pimiento verde (opcional)','100 ml de aceite de oliva virgen extra','1 cucharadita de azúcar','Sal, pimienta negra'],
+  s:['Pica la cebolla en dados muy pequeños (brunoise). El tamaño importa: más pequeño, mejor cocción.','Sofríe la cebolla en aceite a fuego muy suave con una pizca de sal 20-25 min hasta que esté casi caramelizada y dorada.','Añade el ajo picado y sofríe 3 min más.','Añade el tomate rallado, el azúcar y la pimienta. Cocina 15 min hasta que casi todo el líquido haya evaporado.','El sofrito está listo cuando el aceite "nada" sobre la masa de tomate y cebolla. Debe tener color intenso.'],
+  tips:['La paciencia es el ingrediente principal del sofrito','Nunca tengas prisa: el fuego bajo carameliza sin quemar','Congela en porciones para tener siempre a mano']},
 
-  {id:'merluza',emoji:'🐟',cat:'pescados',title:'Merluza en salsa verde',desc:'El clásico vasco. Elegante, sabroso y muy fácil de preparar.',time:'25 min',persons:'4 pers.',diff:'Fácil',diffClass:'diff-facil',cal:'220 kcal',rating:4.7,votes:543,badge:'new',
-  intro:'La merluza en salsa verde es un clásico de la cocina vasca que parece sofisticado pero es muy sencillo. La salsa se hace sola con el movimiento de la cazuela. Un plato de restaurante en casa.',
-  ingredients:['4 lomos de merluza fresca (200g cada uno)','8 almejas frescas (opcional pero muy recomendable)','4 dientes de ajo laminados','1 manojo de perejil fresco','200 ml de caldo de pescado o agua de cocción','100 ml de vino blanco seco','50 ml de aceite de oliva virgen extra','Harina (para enharinar el pescado), sal'],
-  steps:['Sala los lomos de merluza y enharínalos ligeramente por la piel. Sacude el exceso.','En cazuela baja, calienta el aceite a fuego medio. Sofríe el ajo laminado hasta que esté dorado. Retira y reserva.','En el mismo aceite, dora los lomos por la piel 2 min. Da la vuelta y añade el vino. Deja evaporar el alcohol 1 min.','Añade el caldo caliente y las almejas. Mueve la cazuela en círculos para emulsionar la salsa.','Añade el ajo reservado y el perejil muy picado. Sigue moviendo la cazuela 3-4 min hasta que la salsa ligue.','La salsa debe quedar verde, brillante y ligeramente espesa. Sirve inmediatamente en la misma cazuela.'],
-  tips:['Mueve la cazuela en círculos: así liga la salsa sin añadir espesantes','La merluza debe quedar jugosa: no la sobrecocines','Las almejas purgan en agua con sal 30 min antes de usarlas']},
+  // ── TAPAS ──
+  {id:'patatas-bravas',wiki:'Patatas_bravas',e:'🥔',c:'tapas',t:'Patatas bravas con salsa casera',d:'La tapa más pedida de España. Con la salsa brava auténtica.',time:'35 min',p:'4 pers.',dif:'Fácil',dc:'facil',cal:'280 kcal',rat:4.7,v:2876,b:'top',pop:true,
+  img:'img/patatas-bravas.svg',
+  intro:'Las patatas bravas son la tapa más universalmente amada de España. El debate sobre la salsa es eterno: tomate picante o alioli. Aquí va la versión con salsa brava de tomate al estilo madrileño.',
+  ing:['1 kg de patatas para freír','Aceite de oliva abundante para freír','Sal en escamas','Para la salsa brava: 400 g tomate triturado','1 cebolla, 2 dientes de ajo, tabasco o guindilla','Pimentón picante, pimentón dulce, vinagre de Jerez'],
+  s:['Pela y corta las patatas en dados irregulares de 3-4 cm.','Confita en aceite a 130°C 15 min hasta que estén tiernas por dentro. Escurre.','Sube a 190°C y fríe en tandas pequeñas 3-4 min hasta que estén doradas y crujientes.','Para la salsa: sofríe cebolla y ajo 10 min. Añade el tomate y los pimentones. Cocina 15 min.','Tritura la salsa, añade tabasco y vinagre al gusto. Ajusta el picante.','Sirve las patatas muy calientes con la salsa por encima o a un lado.'],
+  tips:['La doble fritura (confitar + freír) es el secreto de la textura perfecta','Las patatas deben estar bien escurridas antes de freír','La salsa que sobre congela perfectamente']},
 
-  {id:'albondigas',emoji:'🍝',cat:'carnes',title:'Albóndigas en salsa de tomate',desc:'Las de la abuela. Jugosas, con su salsita y para mojar pan.',time:'50 min',persons:'4 pers.',diff:'Fácil',diffClass:'diff-facil',cal:'420 kcal',rating:4.8,votes:1234,
-  intro:'Las albóndigas caseras son uno de esos platos que nunca fallan. La mezcla de carne, la salsa de tomate casera y el rato de reposo en la salsa las hacen absolutamente irresistibles.',
-  ingredients:['400 g de carne picada mixta (cerdo y ternera)','1 huevo, 2 dientes de ajo picados, perejil picado','50 g de pan rallado, 50 ml de leche','Sal, pimienta, nuez moscada','Para la salsa: 800 g de tomate triturado natural','1 cebolla, 2 dientes de ajo, albahaca, azúcar, aceite de oliva','Harina para enharinar, aceite para freír'],
-  steps:['Remoja el pan rallado en la leche. Mezcla la carne con el huevo, el ajo, el perejil, el pan escurrido, sal, pimienta y nuez moscada.','Forma albóndigas del tamaño de una nuez. Enharínalas y fríelas en aceite caliente hasta dorar. Reserva.','Para la salsa: sofríe la cebolla picada 10 min. Añade el ajo 2 min y luego el tomate triturado.','Sazona con sal, azúcar (para corregir acidez), albahaca y deja cocinar 20 min a fuego medio.','Añade las albóndigas a la salsa y cocina 15 min más a fuego suave. La salsa debe penetrar en la carne.','Sirve con arroz blanco o pan crujiente para mojar.'],
-  tips:['No mezcles en exceso la carne: quedarán más tiernas','El reposo en la salsa es fundamental para el sabor','La salsa de tomate casera marca la diferencia absoluta']},
+  {id:'pan-tomate',wiki:'Pa_amb_tomàquet',e:'🍞',c:'tapas',t:'Pan con tomate catalán (Pa amb Tomàquet)',d:'La tapa más sencilla y más deliciosa. Con buen pan y tomate.',time:'5 min',p:'4 pers.',dif:'Fácil',dc:'facil',cal:'180 kcal',rat:4.8,v:1543,
+  img:'img/pan-tomate.svg',
+  intro:'El pa amb tomàquet es la tapa más sencilla y más perfecta de Cataluña. Solo necesita tres ingredientes de calidad. La técnica de frotar el tomate directamente sobre el pan es la clave.',
+  ing:['1 barra de pan rústico (mejor tipo payés o cristal)','4 tomates maduros de calidad','1 diente de ajo','Aceite de oliva virgen extra de calidad','Sal en escamas'],
+  s:['Tuesta el pan en el horno o en la tostadora hasta que esté bien crujiente por fuera pero tierno por dentro.','Frota el diente de ajo por el pan tostado. Un solo lado y suavemente.','Corta el tomate por la mitad y frota con fuerza sobre el pan hasta que el tomate impregne bien.','Desecha la piel que queda.','Riega generosamente con aceite de oliva virgen extra.','Espolvorea sal en escamas y sirve inmediatamente.'],
+  tips:['El pan debe estar caliente y crujiente','El tomate maduro y con zumo es fundamental','El aceite de oliva de calidad es el ingrediente que más nota']},
 
-  {id:'pisto',emoji:'🥦',cat:'verduras',title:'Pisto manchego',desc:'El guiso de verduras más famoso de España. Versátil y delicioso.',time:'45 min',persons:'4 pers.',diff:'Fácil',diffClass:'diff-facil',cal:'160 kcal',rating:4.6,votes:678,badge:'new',
-  intro:'El pisto manchego es la ratatouille española. Un guiso de verduras de temporada que se puede servir como entrante, acompañamiento o plato principal con un huevo encima. Sencillo y sabrosísimo.',
-  ingredients:['2 calabacines medianos','2 pimientos rojos','2 pimientos verdes','3 tomates maduros pelados','1 cebolla grande','3 dientes de ajo','100 ml de aceite de oliva virgen extra','Sal, azúcar, pimienta'],
-  steps:['Corta todas las verduras en dados similares de 1 cm. La uniformidad asegura cocción pareja.','En cazuela grande, sofríe la cebolla en aceite abundante a fuego medio 10 min sin que tome color.','Añade los pimientos y sofríe 10 min más. Añade el ajo 2 min.','Incorpora el tomate pelado y troceado. Sofríe 15 min hasta que pierda toda el agua.','Añade el calabacín y cocina 15 min más. Sazona con sal, una pizca de azúcar y pimienta.','El pisto debe quedar con poco líquido y las verduras muy tiernas y concentradas. Sirve caliente o frío.'],
-  tips:['Cada verdura tiene su tiempo: no las añadas todas a la vez','El azúcar corrige la acidez del tomate y los pimientos','Un huevo frito encima lo convierte en plato completo']},
+  {id:'pimientos-padron',wiki:'Pimiento_de_Padrón',e:'🌶️',c:'tapas',t:'Pimientos de Padrón fritos',d:'Unos pican y otros no. La tapa sorpresa por excelencia.',time:'10 min',p:'4 pers.',dif:'Fácil',dc:'facil',cal:'90 kcal',rat:4.7,v:1234,
+  img:'img/pimientos-padron.svg',
+  intro:'Los pimientos de Padrón son la tapa más rápida y adictiva de España. Su fama se debe al elemento sorpresa: la mayoría son suaves pero alguno pica con fuerza. El aceite muy caliente y la sal en escamas son todo.',
+  ing:['400 g de pimientos de Padrón frescos','Aceite de oliva virgen extra abundante','Sal en escamas gruesa'],
+  s:['Lava y seca muy bien los pimientos. Deben estar completamente secos para no salpicar.','Calienta abundante aceite a fuego muy fuerte hasta que empiece a humear ligeramente.','Echa los pimientos de golpe y fríe 3-4 min moviéndolos para que se doren por todos lados.','La piel debe quedar ampollada y dorada.','Escurre en papel de cocina.','Sirve inmediatamente con sal en escamas generosa por encima.'],
+  tips:['El aceite muy caliente es fundamental para el efecto ampollado','Completamente secos antes de freír: evita salpicaduras','Come inmediatamente: pierden la textura al enfriarse']},
 
-  {id:'arroz-leche',emoji:'🍚',cat:'postres',title:'Arroz con leche cremoso',desc:'El postre asturiano por excelencia. Cremoso, especiado y reconfortante.',time:'50 min',persons:'6 pers.',diff:'Fácil',diffClass:'diff-facil',cal:'240 kcal',rating:4.8,votes:1102,badge:'fav',
-  intro:'El arroz con leche asturiano es diferente al de otras regiones: más cremoso, con corteza de limón y canela, y se sirve con una capa de azúcar quemado. Un postre que da mucho consuelo.',
-  ingredients:['200 g de arroz de grano corto (tipo bomba)','1,2 L de leche entera','200 ml de nata líquida','150 g de azúcar','1 corteza de limón','1 rama de canela en rama','1 cucharadita de canela en polvo para decorar'],
-  steps:['Lava el arroz en agua fría hasta que salga casi transparente.','En cazuela grande, pon la leche con la nata, la corteza de limón y la rama de canela. Lleva a ebullición suave.','Añade el arroz cuando la leche empiece a hervir. Remueve para que no se pegue.','Cocina a fuego muy suave 35-40 min removiendo constantemente. El arroz absorbe la leche poco a poco.','Añade el azúcar los últimos 10 minutos. El arroz debe quedar muy cremoso (añade leche caliente si se queda seco).','Retira la corteza de limón y la canela. Vierte en cuencos y deja enfriar. Espolvorea canela en polvo al servir.'],
-  tips:['Remueve constantemente para que no se pegue','Cuanto más lenta la cocción, más cremoso el resultado','Se espesa al enfriar: déjalo más líquido de lo que quieres']},
-
-  {id:'bacalao',emoji:'🐠',cat:'pescados',title:'Bacalao al pil pil',desc:'La técnica vasca más mágica. Una salsa que se hace sola.',time:'40 min',persons:'4 pers.',diff:'Media',diffClass:'diff-media',cal:'310 kcal',rating:4.8,votes:456,
-  intro:'El bacalao al pil pil es una de las elaboraciones más singulares de la cocina española. La salsa se crea sola mediante la emulsión de la gelatina del bacalao con el aceite. Pura magia culinaria.',
-  ingredients:['4 lomos de bacalao desalado (200g cada uno)','300 ml de aceite de oliva virgen extra suave','6 dientes de ajo laminados','2 guindillas secas (opcional)','Perejil para decorar'],
-  steps:['El bacalao desalado debe estar seco por fuera: sécalo bien con papel de cocina.','En cazuela de barro, confita los ajos en el aceite a fuego muy suave (60°C) hasta que estén dorados. Retira los ajos y las guindillas.','Coloca el bacalao con la piel hacia arriba en el aceite templado. Cocina a fuego mínimo 15-20 min. No debe hervir.','El secreto del pil pil: retira la cazuela del fuego y muévela en círculos suaves. La gelatina del bacalao va ligando con el aceite.','Sigue moviendo alternando con fuego mínimo hasta que la salsa quede espesa y cremosa.','Añade los ajos por encima y sirve en la misma cazuela de barro.'],
-  tips:['El fuego debe ser muy suave: el aceite no debe burbujear','El movimiento circular es el secreto del pil pil','El bacalao de calidad, bien desalado, es el 80% del éxito']},
-
-  {id:'tarta-queso',emoji:'🍰',cat:'postres',title:'Tarta de queso "La Viña"',desc:'La tarta vasca que conquistó el mundo. Cremosa y perfecta.',time:'1 hora',persons:'8 pers.',diff:'Fácil',diffClass:'diff-facil',cal:'380 kcal',rating:5.0,votes:3241,badge:'top',popular:true,
-  intro:'La tarta de queso de La Viña (San Sebastián) es la más famosa del mundo. Sin base, sin baño maría, quemada por fuera y líquida por dentro. Tres ingredientes básicos y un resultado extraordinario.',
-  ingredients:['600 g de queso crema (tipo Philadelphia) a temperatura ambiente','200 g de azúcar','4 huevos L a temperatura ambiente','300 ml de nata para montar','20 g de harina (solo 20g, no más)'],
-  steps:['Precalienta el horno a 210°C con ventilador (220°C sin ventilador). Forra un molde de 22-24 cm con papel de horno arrugado (que sobresalga bastante).','Bate el queso crema con el azúcar hasta que esté completamente liso y sin grumos.','Añade los huevos uno a uno, batiendo bien entre cada uno.','Incorpora la nata y la harina tamizada. Mezcla hasta que esté homogéneo (no sobrebatas).','Vierte en el molde y hornea 40-50 min. Debe quedar muy tostada por fuera y temblorosa en el centro.','¡No la saques del horno cuando parezca que se quema! Ese tostado es fundamental. Deja enfriar 1 hora en el molde y refrigera 4 horas.'],
-  tips:['Todos los ingredientes a temperatura ambiente: obligatorio','Que tiemble en el centro es correcto: se cuajará al enfriar','Cuanto más tostada, más auténtica. No tengas miedo al color oscuro']},
-
-  {id:'lentejas',emoji:'🫘',cat:'sopas',title:'Lentejas estofadas con chorizo',desc:'Las lentejas de toda la vida. Contundentes y reconfortantes.',time:'50 min',persons:'6 pers.',diff:'Fácil',diffClass:'diff-facil',cal:'380 kcal',rating:4.7,votes:1567,badge:'fav',
-  intro:'Las lentejas caseras son uno de los platos más completos y económicos de la cocina española. No necesitan remojo y en menos de una hora tienes un plato contundente y nutritivo.',
-  ingredients:['400 g de lentejas pardinas (sin remojo)','150 g de chorizo en rodajas','100 g de panceta o tocino','1 cebolla, 2 zanahorias, 2 dientes de ajo','2 tomates maduros o 1 lata de tomate triturado','1 pimiento verde, 1 hoja de laurel','Pimentón dulce, comino, aceite de oliva, sal'],
-  steps:['En cazuela, sofríe la cebolla, zanahoria y pimiento picados en aceite 10 min. Añade el ajo 2 min.','Añade el chorizo y la panceta. Sofríe 3 min hasta que suelten su grasa y aroma.','Incorpora el tomate y sofríe 5 min. Añade el pimentón y el comino. Remueve rápido.','Añade las lentejas (enjuagadas) y cubre con agua fría (doble volumen que lentejas). Añade el laurel.','Cocina a fuego medio 30-35 min hasta que las lentejas estén tiernas. Añade agua caliente si fuera necesario.','Rectifica de sal. Las lentejas deben quedar caldosas, no secas. Sirve caliente con un chorrito de aceite crudo.'],
-  tips:['Las lentejas pardinas no necesitan remojo previo','Si se quedan secas, añade siempre agua CALIENTE para no cortar la cocción','Un chorro de vinagre al servir las hace más digestivas']},
-
-  {id:'creme-catalana',emoji:'🍛',cat:'postres',title:'Crema catalana',desc:'El postre catalán más famoso. Crujiente por fuera, suave por dentro.',time:'30 min + reposo',persons:'6 pers.',diff:'Media',diffClass:'diff-media',cal:'260 kcal',rating:4.8,votes:876,badge:'new',
-  intro:'La crema catalana es la versión española de la crème brûlée francesa, aunque la nuestra es anterior. La diferencia es el almidón en lugar de nata y el sabor a limón y canela. El quemado con soplete es el momento más satisfactorio.',
-  ingredients:['500 ml de leche entera','6 yemas de huevo','120 g de azúcar + azúcar para quemar','25 g de maicena (almidón de maíz)','1 corteza de limón','1 rama de canela en rama'],
-  steps:['Infusiona la leche con la corteza de limón y la canela a fuego suave 10 min. No debe hervir. Cuela y reserva.','Bate las yemas con el azúcar hasta que blanqueen. Añade la maicena y mezcla bien.','Añade la leche caliente poco a poco sobre las yemas removiendo constantemente.','Vuelve a poner en el cazo a fuego muy suave, sin dejar de remover, hasta que espese (5-8 min).','Vierte en cazuelitas individuales. Deja enfriar y refrigera mínimo 2 horas.','Al servir, espolvorea azúcar por encima y quema con soplete hasta caramelizar. ¡Come inmediatamente!'],
-  tips:['Remueve sin parar para evitar grumos','El almidón es lo que la diferencia del crème brûlée: no uses harina','Quema el azúcar justo antes de servir: si no, se humedece']},
-
-  {id:'champiñones',emoji:'🍄',cat:'verduras',title:'Champiñones al ajillo',desc:'Listo en 15 minutos y para chuparse los dedos.',time:'15 min',persons:'4 pers.',diff:'Fácil',diffClass:'diff-facil',cal:'120 kcal',rating:4.6,votes:934,badge:'rapido',
-  intro:'Los champiñones al ajillo son la tapa perfecta: rápida, económica y deliciosa. El truco está en no moverlos nada al principio para que se doren bien en lugar de soltar agua.',
-  ingredients:['500 g de champiñones frescos','4 dientes de ajo laminados','1 guindilla seca (opcional)','Perejil fresco picado','50 ml de vino blanco','Aceite de oliva virgen extra, sal'],
-  steps:['Limpia los champiñones con papel húmedo (no los mojes). Córtalos en cuartos.','Calienta aceite a fuego fuerte en sartén grande. Añade los champiñones en una sola capa.','Importante: no los muevas durante 3-4 min. Deben dorarse bien antes de soltar agua.','Remueve y añade el ajo y la guindilla. Sofríe 2 min más.','Añade el vino blanco y deja evaporar el alcohol 2 min.','Sazona con sal y añade el perejil picado. Sirve inmediatamente en la sartén.'],
-  tips:['No los muevas al principio: el dorado es el secreto','La sartén grande es importante para que no se amontonen','Sírvelos inmediatamente: pierden textura si se esperan']},
-
-  {id:'ensaladilla',emoji:'🥗',cat:'basicos',title:'Ensaladilla rusa casera',desc:'La tapa más popular de España. Cremosa y llena de sabor.',time:'30 min + reposo',persons:'8 pers.',diff:'Fácil',diffClass:'diff-facil',cal:'190 kcal',rating:4.7,votes:1432,badge:'fav',
-  intro:'La ensaladilla rusa española no tiene nada que ver con la original rusa. La nuestra va con bonito, aceitunas y una mayonesa generosa. Es la tapa más pedida en los bares de toda España.',
-  ingredients:['4 patatas medianas cocidas','3 zanahorias cocidas','4 huevos cocidos','1 lata de bonito en aceite (160g)','100 g de guisantes cocidos','80 g de aceitunas verdes sin hueso','150 g de mayonesa (mejor casera)','Sal, 2 cucharadas de vinagre'],
-  steps:['Cuece las patatas y zanahorias enteras con piel en agua con sal hasta que estén tiernas (20 min). Deja enfriar.','Pela y corta en dados pequeños las patatas y zanahorias. Pica los huevos cocidos reservando uno para decorar.','Escurre el bonito y desmígalo. Pica las aceitunas en rodajas.','Mezcla todos los ingredientes con la mayonesa. Sazona con sal y vinagre.','Rectifica de mayonesa según preferencia. Refrigera 2 horas mínimo.','Decora con mayonesa por encima, aceitunas y huevo cocido rallado. Sirve fría.'],
-  tips:['Las patatas deben estar completamente frías antes de mezclar','La mayonesa casera marca la diferencia absoluta','Hazla el día antes: con reposo está mucho mejor']},
+  {id:'tortilla-española-mini',wiki:'Tortilla_de_patatas',e:'🥚',c:'tapas',t:'Pintxo de tortilla española',d:'La tortilla en versión bocado para tapear.',time:'40 min',p:'20 pintxos',dif:'Fácil',dc:'facil',cal:'75 kcal',rat:4.7,v:876,
+  img:'img/tortilla.svg',
+  intro:'La tortilla española en versión pintxo es perfecta para reuniones. Se hace como la tortilla normal pero se sirve en rebanadas sobre pan crujiente. Un clásico de los bares del norte.',
+  ing:['Ingredientes de la tortilla de patatas (ver receta)','1 barra de pan tipo baguette','Aceite de oliva para pintar','Sal en escamas'],
+  s:['Elabora la tortilla de patatas siguiendo la receta principal.','Deja enfriar completamente (mínimo 1 hora).','Corta la baguette en rebanadas de 1 cm y tuéstalas ligeramente.','Pinta con aceite de oliva.','Corta la tortilla en triángulos o cuadraditos y coloca sobre cada rebanada.','Clava un palillo y sirve con sal en escamas.'],
+  tips:['La tortilla fría es perfecta para pintxos','Que la tortilla esté completamente fría facilita el corte','El pan debe estar crujiente para aguantar el peso']},
 ];
 
-const CHEF_TIPS = [
-  '🧄 <strong>Ajo sin amargor:</strong> Quita siempre el germen verde del ajo. Es el responsable del sabor amargo y la digestión pesada.',
-  '🔥 <strong>Sartén caliente:</strong> Para un buen sellado, la sartén debe estar muy caliente antes de añadir el aceite. Así la carne no se pega.',
-  '🧂 <strong>Sal en escamas:</strong> Para carnes a la plancha, usa sal en escamas justo al servir. El contraste de textura es espectacular.',
-  '🍋 <strong>Ácido al final:</strong> Un chorrito de limón o vinagre al servir cualquier plato realza todos los sabores. Pruébalo.',
-  '⏳ <strong>El reposo:</strong> Toda carne asada necesita reposar 5-10 min antes de cortar. Los jugos se redistribuyen y está más jugosa.',
-  '🫙 <strong>Mise en place:</strong> Prepara y mide todos los ingredientes ANTES de encender el fuego. Cambio total de experiencia.'
+let curCat = 'todo';
+let curSearch = '';
+let shownCount = 12;
+
+const TIPS = [
+  '<strong>🧄 Ajo sin amargor:</strong> Quita siempre el germen verde interior del ajo. Es el responsable del sabor amargo y la digestión pesada.',
+  '<strong>🔥 Sartén muy caliente:</strong> Para sellar carne, la sartén debe estar muy caliente antes del aceite. Así se forma la costra y no se pega.',
+  '<strong>🧂 Sal en el momento exacto:</strong> En carnes rojas, sala justo antes de cocinar. En pescados, 10 minutos antes para que libere jugos.',
+  '<strong>⏳ El reposo es sagrado:</strong> Toda carne asada necesita 5-10 min de reposo. Los jugos se redistribuyen y está más jugosa.',
+  '<strong>🍋 El toque ácido:</strong> Un chorrito de limón o vinagre al servir realza todos los sabores. Pruébalo en cualquier plato salado.',
+  '<strong>🫙 Mise en place:</strong> Prepara y mide todos los ingredientes ANTES de encender el fuego. Cambia completamente la experiencia.',
+  '<strong>🌿 Hierbas frescas al final:</strong> Las hierbas pierden el aroma con el calor. Añade perejil, albahaca o cilantro siempre al servir.',
+  '<strong>🥚 Temperatura ambiente:</strong> Los huevos, queso y mantequilla siempre a temperatura ambiente para emulsionar y ligar mejor.'
 ];
 
-let currentCat = 'todo';
-let currentSearch = '';
-let visibleCount = 12;
+function stars(r){return '★'.repeat(Math.floor(r))+(r%1?'½':'')}
+function diffLabel(dc){return dc==='facil'?'Fácil':dc==='media'?'Media':'Difícil'}
 
-function renderCards() {
-  const grid = document.getElementById('cardsGrid');
-  let filtered = RECIPES.filter(r => {
-    const catOk = currentCat === 'todo' || r.cat === currentCat;
-    const searchOk = !currentSearch || r.title.toLowerCase().includes(currentSearch) || r.desc.toLowerCase().includes(currentSearch);
-    return catOk && searchOk;
+function getFiltered(){
+  return R.filter(r=>{
+    const catOk = curCat==='todo'||r.c===curCat;
+    const srchOk = !curSearch||r.t.toLowerCase().includes(curSearch)||r.d.toLowerCase().includes(curSearch);
+    return catOk&&srchOk;
   });
-  const visible = filtered.slice(0, visibleCount);
-  grid.innerHTML = visible.map(r => `
+}
+
+function renderGrid(){
+  const filtered = getFiltered();
+  const toShow = filtered.slice(0,shownCount);
+  document.getElementById('recipeGrid').innerHTML = toShow.map(r=>`
     <div class="card" onclick="openRecipe('${r.id}')">
-      <div class="card-img">
-        <span class="${'diff-'+r.diffClass.replace('diff-','')}" class="card-diff" style="position:absolute;top:8px;left:8px;font-size:0.65rem;padding:3px 8px;border-radius:2px;font-weight:700;letter-spacing:.5px;background:${r.diffClass==='diff-facil'?'#e8f5e9':r.diffClass==='diff-media'?'#fff8e1':'#fce4e4'};color:${r.diffClass==='diff-facil'?'#2D6A4F':r.diffClass==='diff-media'?'#b45309':'#B83232'}">${r.diff}</span>
-        ${r.emoji}
-        <span class="card-time">${r.time}</span>
+      <div class="card-thumb" style="background:#1A1208;position:relative;overflow:hidden;">
+        <img class="wiki-img" data-wiki="${r.wiki||''}" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:none;" alt="${r.t}" loading="lazy">
+        <span class="card-emoji" style="font-size:3.5rem;position:relative;z-index:2;filter:drop-shadow(0 2px 8px rgba(0,0,0,0.5))">${r.e}</span>
+        <span class="c-diff ${r.dc}" style="position:absolute;top:10px;left:10px;z-index:3">${diffLabel(r.dc)}</span>
+        ${r.b?`<span class="c-badge ${r.b}" style="position:absolute;top:10px;right:10px;z-index:3">${r.b==='top'?'TOP':r.b==='new'?'NUEVO':'FAV'}</span>`:''}
+        <span class="c-time" style="position:absolute;bottom:10px;right:10px;z-index:3">${r.time}</span>
       </div>
       <div class="card-body">
-        <div class="card-cat">${r.cat.toUpperCase()}</div>
-        <div class="card-title">${r.title}${r.badge?`<span class="badge badge-${r.badge}">${r.badge.toUpperCase()}</span>`:''}</div>
-        <div class="card-meta"><span>👤 ${r.persons}</span><span>⭐ ${r.rating}</span><span>🔥 ${r.cal}</span></div>
-        <div class="card-btn">Ver receta →</div>
+        <div class="c-cat">${r.c.toUpperCase()}</div>
+        <div class="c-title">${r.t}</div>
+        <div class="c-desc">${r.d}</div>
+        <div class="c-meta">
+          <span>${r.p}</span>
+          <span>${r.cal}</span>
+          <span class="c-stars">${stars(r.rat)}</span>
+          <span style="font-size:0.72rem">${r.rat} (${r.v.toLocaleString()})</span>
+        </div>
+        <div class="c-btn">Ver receta completa <span>→</span></div>
       </div>
-    </div>
-  `).join('');
-  const btn = document.getElementById('loadMoreBtn');
-  btn.classList.toggle('hidden', visibleCount >= filtered.length);
+    </div>`).join('');
+  const btn = document.getElementById('loadBtn');
+  btn.classList.toggle('hidden', shownCount>=filtered.length);
 }
 
-function renderPopular() {
-  const pops = RECIPES.filter(r=>r.popular).slice(0,6);
-  document.getElementById('popularList').innerHTML = pops.map((r,i)=>`
-    <li onclick="openRecipe('${r.id}')"><span class="num">${i+1}</span>${r.emoji} ${r.title}</li>`).join('');
+function renderPopular(){
+  const pops = R.filter(r=>r.pop).slice(0,7);
+  document.getElementById('popularWidget').innerHTML = pops.map((r,i)=>`
+    <div class="pop-item" onclick="openRecipe('${r.id}')">
+      <span class="pop-num">${i+1}</span>
+      <span class="pop-emoji">${r.e}</span>
+      <div><div class="pop-title">${r.t}</div><div class="pop-sub">${r.p} · ⭐${r.rat}</div></div>
+    </div>`).join('');
 }
 
-function randomTip() {
-  document.getElementById('chefTip').innerHTML = CHEF_TIPS[Math.floor(Math.random()*CHEF_TIPS.length)];
+function randomTip(){
+  document.getElementById('chefTipBox').innerHTML = TIPS[Math.floor(Math.random()*TIPS.length)];
 }
 
-function filterCat(cat, btn) {
-  currentCat = cat;
-  visibleCount = 12;
-  document.querySelectorAll('.cat-tab').forEach(b=>b.classList.remove('active'));
+function setFilter(cat, btn){
+  curCat=cat; shownCount=12;
+  document.querySelectorAll('.f-tab').forEach(b=>b.classList.remove('active'));
   if(btn) btn.classList.add('active');
-  renderCards();
-  document.getElementById('main-content').scrollIntoView({behavior:'smooth'});
+  renderGrid();
 }
 
-function filterCards() {
-  currentSearch = document.getElementById('searchInput').value.toLowerCase();
-  visibleCount = 12;
-  renderCards();
+function filterAndScroll(cat){
+  curCat=cat; shownCount=12;
+  document.querySelectorAll('.f-tab').forEach(b=>b.classList.remove('active'));
+  document.querySelectorAll('.f-tab').forEach(b=>{if(b.textContent.trim().toLowerCase().includes(cat.substring(0,4)))b.classList.add('active')});
+  showHome();
+  setTimeout(()=>{
+    document.getElementById('main-section').scrollIntoView({behavior:'smooth'});
+    renderGrid();
+  },100);
 }
 
-function loadMore() {
-  visibleCount += 6;
-  renderCards();
+function searchRecipes(){
+  curSearch = document.getElementById('searchInput').value.toLowerCase();
+  shownCount=12;
+  renderGrid();
 }
 
-function scrollToRecipes() {
-  document.getElementById('main-content').scrollIntoView({behavior:'smooth'});
+function loadMore(){
+  shownCount+=6;
+  renderGrid();
 }
 
-function openRecipe(id) {
-  const r = RECIPES.find(x=>x.id===id);
+function scrollToMain(){
+  document.getElementById('main-section').scrollIntoView({behavior:'smooth'});
+}
+
+function openRecipe(id){
+  const r = R.find(x=>x.id===id);
   if(!r) return;
-  document.getElementById('rEmoji').textContent = r.emoji;
-  document.getElementById('rTitle').textContent = r.title;
-  document.getElementById('rDesc').textContent = r.desc;
-  document.getElementById('rStars').textContent = '★'.repeat(Math.round(r.rating));
-  document.getElementById('rRatingText').textContent = `${r.rating} (${r.votes.toLocaleString()} valoraciones)`;
-  document.getElementById('rTime').textContent = `⏱ ${r.time}`;
-  document.getElementById('rPersons').textContent = `👤 ${r.persons}`;
-  document.getElementById('rDiff').textContent = `📊 ${r.diff}`;
-  document.getElementById('rCal').textContent = `🔥 ${r.cal}`;
-  document.getElementById('rContent').innerHTML = `
-    <div class="r-intro">${r.intro}</div>
-    <h2>Ingredientes</h2>
-    <ul>${r.ingredients.map(i=>`<li>${i}</li>`).join('')}</ul>
-    <h2>Preparación paso a paso</h2>
-    <ol>${r.steps.map(s=>`<li>${s}</li>`).join('')}</ol>
-    <h2>Consejos del chef</h2>
-    <div class="tip-recipe">
-      <ul style="list-style:none;margin:0">${r.tips.map(t=>`<li style="margin-bottom:0.5rem">✦ ${t}</li>`).join('')}</ul>
-    </div>
-  `;
-  document.getElementById('home-page').style.display = 'none';
-  document.getElementById('recipe-page').style.display = 'block';
+  document.getElementById('rpEmoji').textContent='';
+  const heroImg = document.getElementById('rpHeroImg');
+  if(r.img){heroImg.style.cssText='width:100%;max-width:700px;margin:1.5rem auto 0;border-radius:6px;overflow:hidden;border:3px solid rgba(184,148,63,0.3)';if(r.img && r.img.endsWith('.svg')){
+    heroImg.innerHTML=`<img src="${r.img}" style="width:100%;height:300px;object-fit:cover;display:block;border-radius:6px;" alt="${r.t}" loading="lazy" onerror="this.parentElement.innerHTML='<div style=\"background:#2A1A08;height:280px;display:flex;align-items:center;justify-content:center;font-size:8rem\">${r.e}</div>'">`;
+  }else{
+    heroImg.innerHTML=`<div style="background:${r.img||'#2A1A08'};height:280px;display:flex;align-items:center;justify-content:center;font-size:8rem;filter:drop-shadow(0 4px 12px rgba(0,0,0,0.5))">${r.e}</div>`;
+  }}else{heroImg.innerHTML='';}
+  document.getElementById('rpTitle').textContent=r.t;
+  document.getElementById('rpDesc').textContent=r.d;
+  document.getElementById('rpStars').textContent=stars(r.rat);
+  document.getElementById('rpVotes').textContent=`${r.rat} · ${r.v.toLocaleString()} valoraciones`;
+  document.getElementById('rpBreadcrumb').innerHTML=`Inicio / ${r.c.charAt(0).toUpperCase()+r.c.slice(1)} / <span>${r.t}</span>`;
+  document.getElementById('rpMeta').innerHTML=`
+    <div class="rp-meta-item"><span class="rp-meta-val">${r.time}</span><span class="rp-meta-key">Tiempo</span></div>
+    <div class="rp-meta-item"><span class="rp-meta-val">${r.p}</span><span class="rp-meta-key">Porciones</span></div>
+    <div class="rp-meta-item"><span class="rp-meta-val">${diffLabel(r.dc)}</span><span class="rp-meta-key">Dificultad</span></div>
+    <div class="rp-meta-item"><span class="rp-meta-val">${r.cal}</span><span class="rp-meta-key">Calorías</span></div>`;
+  document.getElementById('rpContent').innerHTML=`
+    <div class="rp-intro">${r.intro}</div>
+    <div class="rp-section-title">Ingredientes</div>
+    <div class="ingredients-grid">${r.ing.map(i=>`<div class="ing-item">${i}</div>`).join('')}</div>
+    <div class="rp-section-title">Preparación paso a paso</div>
+    <ol class="steps-list">${r.s.map((s,i)=>`<li class="step-item"><div class="step-num">${i+1}</div><div class="step-text">${s}</div></li>`).join('')}</ol>
+    <div class="rp-tips">
+      <div class="rp-tips-title">✦ Consejos del chef</div>
+      ${r.tips.map(t=>`<div class="rp-tip-item">${t}</div>`).join('')}
+    </div>`;
+  document.getElementById('home-page').style.display='none';
+  document.getElementById('recipe-page').style.display='block';
   window.scrollTo(0,0);
 }
 
-function showHome() {
-  document.getElementById('home-page').style.display = 'block';
-  document.getElementById('recipe-page').style.display = 'none';
+function showHome(){
+  document.getElementById('home-page').style.display='block';
+  document.getElementById('recipe-page').style.display='none';
   window.scrollTo(0,0);
 }
 
-renderCards();
+
+// Cache de imágenes de Wikipedia
+const wikiImgCache = {};
+
+async function loadWikiImage(wikiPage, imgEl) {
+  if (!wikiPage) return;
+  if (wikiImgCache[wikiPage]) {
+    imgEl.src = wikiImgCache[wikiPage];
+    imgEl.style.display = 'block';
+    return;
+  }
+  try {
+    const api = `https://es.wikipedia.org/w/api.php?action=query&titles=${encodeURIComponent(wikiPage)}&prop=pageimages&format=json&pithumbsize=600&origin=*`;
+    const resp = await fetch(api);
+    const data = await resp.json();
+    const pages = data.query.pages;
+    const page = Object.values(pages)[0];
+    if (page.thumbnail && page.thumbnail.source) {
+      wikiImgCache[wikiPage] = page.thumbnail.source;
+      imgEl.src = page.thumbnail.source;
+      imgEl.style.display = 'block';
+      // Ocultar emoji
+      const emoji = imgEl.parentElement.querySelector('.card-emoji');
+      if (emoji) emoji.style.display = 'none';
+    }
+  } catch(e) {}
+}
+
+renderGrid();
 renderPopular();
 randomTip();
+
+// Cargar imágenes de Wikipedia tras renderizar
+setTimeout(loadAllWikiImages, 300);
+
+function loadAllWikiImages() {
+  document.querySelectorAll('.wiki-img').forEach(img => {
+    const wiki = img.dataset.wiki;
+    if (wiki) loadWikiImage(wiki, img);
+  });
+}
 </script>
 </body>
 </html>
